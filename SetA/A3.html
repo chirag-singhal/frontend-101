@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>A2</title>
+    <title>A3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
@@ -39,6 +39,20 @@
                 .a:nth-child(6n-2){
                     margin-left: 25.5vw;
                 }
+               @keyframes animateXl1{
+                    50%{transform: translateX(24vw)}
+                    100%{transform: translateX(0)}
+                }
+                .a:nth-child(6n-3),.a:nth-child(6n-4),.a:nth-child(6n-5){
+                    animation: animateXl1 2s ease-in-out infinite;
+                }
+                @keyframes animateXl2{
+                    50%{transform: translateX(-25vw)}
+                    100%{transform: translateX(0)}
+                }
+                .a:nth-child(6n-2),.a:nth-child(6n-1),.a:nth-child(6n){
+                    animation: animateXl2 2s ease-in-out infinite;
+                }
             }
             @media all and (max-width:1200px) and (min-width:900px)
             {
@@ -51,6 +65,20 @@
                 .a:nth-child(4n-1){
                 margin-left: 30vw;
                 }
+                @keyframes animatel1{
+                    50%{transform: translateX(34vw)}
+                    100%{transform: translateX(0)}
+                }
+                .a:nth-child(4n-3),.a:nth-child(4n-2){
+                    animation: animatel1 2s ease-in-out infinite;
+                }
+                @keyframes animatel2{
+                    50%{transform: translateX(-31vw)}
+                    100%{transform: translateX(0)}
+                }
+                .a:nth-child(4n-1),.a:nth-child(4n){
+                    animation: animatel2 2s ease-in-out infinite;
+                }
             }
             @media all and (max-width:900px) and (min-width:600px)
             {
@@ -60,8 +88,22 @@
                 .a:nth-child(2n-1){
                 margin-right: 50vw;
                 }
-                .a:nth-child(even){
+                .a:nth-child(2n){
                 margin-left: 50vw;
+                }
+                @keyframes animates1{
+                    50%{transform: translateX(48vw)}
+                    100%{transform: translateX(0)}
+                }
+                .a:nth-child(2n-1){
+                    animation: animates1 2s ease-in-out infinite;
+                }
+                @keyframes animates2{
+                    50%{transform: translateX(-49vw)}
+                    100%{transform: translateX(0)}
+                }
+                .a:nth-child(2n){
+                    animation: animates2 2s ease-in-out infinite;
                 }
             }
             @media all and (max-width:600px)
