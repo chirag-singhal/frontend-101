@@ -7,8 +7,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
+
+    <style>
+            html,body{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .a{
+                height: 42vh;
+                width: 21vw;
+                background-color: white;
+                margin-top: 25px;
+                font-size: 12vh;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+            .container{
+                display: flex;
+                flex-wrap: wrap;
+                background-color: #d4145a;
+                justify-content: space-around;
+            }
+            @media all and (min-width:1200px)
+            {
+                .a:nth-child(6n-3){
+                    margin-right: 24.5vw;
+                }
+                .a:nth-child(6n-2){
+                    margin-left: 25.5vw;
+                }
+            }
+            @media all and (max-width:1200px) and (min-width:900px)
+            {
+                .a{
+                    width:30vw;
+                }
+                .a:nth-child(4n-2){
+                margin-right: 36.5vw;
+                }
+                .a:nth-child(4n-1){
+                margin-left: 30vw;
+                }
+            }
+            @media all and (max-width:900px) and (min-width:600px)
+            {
+                .a{
+                    width:45vw;
+                }
+                .a:nth-child(2n-1){
+                margin-right: 50vw;
+                }
+                .a:nth-child(even){
+                margin-left: 50vw;
+                }
+            }
+            @media all and (max-width:600px)
+            {
+                .a{
+                    width:95vw;
+                }
+            }
+        </style>
 </head>
 <body>
+    <div class="container">
+        <div class="a">A</div>
+        <div class="a">B</div>
+        <div class="a">C</div>
+        <div class="a">D</div>
+        <div class="a">E</div>
+        <div class="a">F</div>
+        <div class="a">G</div>
+        <div class="a">H</div>
+        <div class="a">I</div>
+        <div class="a">J</div>
+        <div class="a">C</div>
+        <div class="a">K</div>
+        <div class="a">L</div>
+        <div class="a">M</div>
+        <div class="a">N</div>
+    </div>
     
 </body>
 </html>
