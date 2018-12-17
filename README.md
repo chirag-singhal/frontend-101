@@ -11,8 +11,8 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 ```markdown
 Syntax highlighted code block
 
-[A1]https://chirag-singhal.github.io/frontend-101/SetA/A1.html)
-[A2]https://chirag-singhal.github.io/frontend-101/SetA/A2.html)
+[A1](https://chirag-singhal.github.io/frontend-101/SetA/A1.html)
+[A2](https://chirag-singhal.github.io/frontend-101/SetA/A2.html)
 [A3](https://chirag-singhal.github.io/frontend-101/SetA/A3.html)
 
 **Bold** and _Italic_ and `Code` text
