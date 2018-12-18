@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>A5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: monospace;
+        }
+        .box1{
+            display: flex;
+            perspective: 200px;
+            position: absolute;
+            top: 30%;
+            left: 30%;
+        }
+        .face{
+            height: 50px;
+            width: 100px;
+            background-color: red;
+            border: solid 2px black;
+            transform-origin: 0 0;
+            transform: rotateY(-15deg);
+            letter-spacing: 2px;
+            font-weight: 700;
+            line-height: 50px;
+            text-align: center;
+            color: white;
+            font-size: 15px;
+        }
+        .side{
+            height: 50px;
+            width: 100px;
+            background-color: red;
+            border: solid 2px black;
+            transform-origin: 0 0;
+            transform: translateX(-4px) translateZ(25px) rotateY(75deg);
+        }
+        .face:hover{
+            transform: rotateY(0);
+        }
+        .face:hover ~ .side{
+            transform: rotateY(90deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="face">BUTTON</div>
+        <div class="side"></div>
+    </div>
+</body>
+</html>
