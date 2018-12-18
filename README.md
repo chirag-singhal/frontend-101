@@ -1,31 +1,22 @@
-## Welcome to GitHub Pages
+# frontend-101
 
-You can use the [editor on GitHub](https://github.com/chirag-singhal/frontend-101/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+[Department of Visual Media (DVM)](https://github.com/dvm-bitspilani) - Frontend assignment for better understanding and practice of CSS and JAVASCRIPT.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+* A (CSS)
+  - [Task #A1 - Grid](https://chirag-singhal.github.io/frontend-101/SetA/A1.html)
+     - Practice of Responsive CSS Flex Box
+  - [Task #A2 - Incomplete Grid](https://chirag-singhal.github.io/frontend-101/SetA/A2.html)
+     - Practice of Responsive CSS Flex Box
+  - [Task #A3 - Trippy Grid](https://chirag-singhal.github.io/frontend-101/SetA/A3.html)
+     - Practice of Responsive CSS Flex Box
+  - [Task #A4 - Nav Bar](https://chirag-singhal.github.io/frontend-101/SetA/A4.html)
+     - Making a responsive Navigation 
+  - [Task #A5 - 3D Buttons](https://chirag-singhal.github.io/frontend-101/SetA/A5.html)
+     - 3D Buttons made using CSS
+  - [Task #A6 - DVM Logo](https://chirag-singhal.github.io/frontend-101/SetA/A6.html)
+     - SVG Animations
+  - [Task #A7 - The X Factor](https://chirag-singhal.github.io/frontend-101/SetA/A7.html)
+     - CSS Gradients used to create home screen wallpaper of iPhone X
+  - [Task #A8 - Clip Clip Clip](https://chirag-singhal.github.io/frontend-101/SetA/A8.html)
+     - Using CSS Clip-Path Property to create animation as in [Species In Pieces](http://www.species-in-pieces.com/)
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-[A1](https://chirag-singhal.github.io/frontend-101/SetA/A1.html)
-[A2](https://chirag-singhal.github.io/frontend-101/SetA/A2.html)
-[A3](https://chirag-singhal.github.io/frontend-101/SetA/A3.html)
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/chirag-singhal/frontend-101/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
