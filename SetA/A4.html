@@ -54,6 +54,7 @@
                 height: 3px;
                 background-color: white;
                 margin: 5px;
+                transition: animation 1s;
             }
             .ham-links{
                display: flex;
@@ -67,7 +68,7 @@
                position: absolute;
                top: 10vh;
                left: -200px;
-               transition: 1s;
+               transition: 1s ease-out;
                
             }
             .ham-logo{
@@ -76,10 +77,22 @@
             .ham-menu{
                 margin-left: 20px;
             }
+            @keyframes bar-top1 {
+                100%{transform: translateY(-10px) rotate(45deg)}
+            }
+            @keyframes bar-down1 {
+                100%{transform: translateY(10px) rotate(-45deg)}
+            }
+            @keyframes bar-top2 {
+                100%{transform: translateY(0px) rotate(0deg)}
+            }
+            @keyframes bar-down2 {
+                100%{transform: translateY(0px) rotate(0deg)}
+            }
         }   
     </style>
     <script>
-        var x;
+        var x=1;
         function nav(){
             if(x==1){
                 opennav();
@@ -90,20 +103,31 @@
         }
         function opennav(){
             document.getElementById('hamlink').style.left ="0";
+            document.getElementById('bar1').style.transformOrigin = "0 0";
+            document.getElementById('bar3').style.transformOrigin = "0 0";
+            document.getElementById('bar1').style.animation= "bar-top1 1s forwards";
+            document.getElementById('bar2').style.display= "none";
+            document.getElementById('bar3').style.animation= "bar-down1 1s forwards";
             x=0;
         }
         function closenav(){
             document.getElementById('hamlink').style.left ="-200px";
+            document.getElementById('bar1').style.transformOrigin = "0 0";
+            document.getElementById('bar3').style.transformOrigin = "0 0";
+            document.getElementById('bar1').style.animation= "bar-top2 1s forwards";
+            document.getElementById('bar3').style.animation= "bar-down2 1s forwards";
+            document.getElementById('bar2').style.display= "block";
             x=1;
         }
+        console.log(x);
     </script>
 </head>
 <body>
     <div class="ham">
         <div class="ham-menu" onclick="nav()">
-            <div class="bars"></div>
-            <div class="bars"></div>
-            <div class="bars"></div>
+            <div class="bars" id="bar1"></div>
+            <div class="bars" id="bar2"></div>
+            <div class="bars" id="bar3"></div>
         </div>
         <div class="ham-logo">Logo</div>
         <div class="ham-links" id="hamlink">
