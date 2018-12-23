@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>B1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    .container{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30vh;
+    }
+    .keys{
+        height: 100px;
+        width: 100px;
+        background-color: darkorange;
+        text-align: center;
+        line-height: 100px;
+        font-size: 60px;
+        font-family: cursive;
+        color: white;
+        border: 2px black solid;
+        transition: 0.1s;
+    }
+    </style>
+    <script>
+     window.addEventListener("keydown",audio);
+    
+     function audio(e){
+        var c = e.key;
+        if(c=="a"){
+           document.getElementById('a').style.backgroundColor = "black";
+           document.getElementById('a').style.fontSize = "54px";
+           document.getElementById('aaudio').play();
+           document.getElementById('a').style.borderColor = "darkorange";
+        }
+        if(c=="s"){
+           document.getElementById('s').style.backgroundColor = "black";
+           document.getElementById('s').style.fontSize = "54px";
+           document.getElementById('saudio').play();
+           document.getElementById('s').style.borderColor = "darkorange";
+        }
+        if(c=="d"){
+           document.getElementById('d').style.backgroundColor = "black";
+           document.getElementById('d').style.fontSize = "54px";
+           document.getElementById('daudio').play();
+           document.getElementById('d').style.borderColor = "darkorange";
+        }
+        if(c=="f"){
+           document.getElementById('f').style.backgroundColor = "black";
+           document.getElementById('f').style.fontSize = "54px";
+           document.getElementById('faudio').play();
+           document.getElementById('f').style.borderColor = "darkorange";
+        }
+        if(c=="g"){
+           document.getElementById('g').style.backgroundColor = "black";
+           document.getElementById('g').style.fontSize = "54px";
+           document.getElementById('gaudio').play();
+           document.getElementById('g').style.borderColor = "darkorange";
+        }
+        if(c=="h"){
+           document.getElementById('h').style.backgroundColor = "black";
+           document.getElementById('h').style.fontSize = "54px";
+           document.getElementById('haudio').play();
+           document.getElementById('h').style.borderColor = "darkorange";
+        }
+        if(c=="j"){
+           document.getElementById('j').style.backgroundColor = "black";
+           document.getElementById('j').style.fontSize = "54px";
+           document.getElementById('jaudio').play();
+           document.getElementById('j').style.borderColor = "darkorange";
+        }
+        if(c=="k"){
+           document.getElementById('k').style.backgroundColor = "black";
+           document.getElementById('k').style.fontSize = "54px";
+           document.getElementById('kaudio').play();
+           document.getElementById('k').style.borderColor = "darkorange";
+        }
+        if(c=="l"){
+           document.getElementById('l').style.backgroundColor = "black";
+           document.getElementById('l').style.fontSize = "54px";
+           document.getElementById('laudio').play();
+           document.getElementById('l').style.borderColor = "darkorange";
+        }
+        console.log(e);
+     }
+     window.addEventListener("keyup",upaudio);
+    
+     function upaudio(e){
+        var c = e.key;
+        if(c=="a"){
+
+            document.getElementById('a').style.backgroundColor = "darkorange";
+            document.getElementById('a').style.fontSize = "60px";
+            document.getElementById('aaudio').pause();
+            document.getElementById('aaudio').currentTime = "0";
+            document.getElementById('a').style.borderColor = "black";
+        }
+        if(c=="s"){
+
+            document.getElementById('s').style.backgroundColor = "darkorange";
+            document.getElementById('s').style.fontSize = "60px";
+            document.getElementById('saudio').pause();
+            document.getElementById('saudio').currentTime = "0";
+            document.getElementById('s').style.borderColor = "black";
+        }
+        if(c=="d"){
+
+            document.getElementById('d').style.backgroundColor = "darkorange";
+            document.getElementById('d').style.fontSize = "60px";
+            document.getElementById('daudio').pause();
+            document.getElementById('daudio').currentTime = "0";
+            document.getElementById('d').style.borderColor = "black";
+        }
+        if(c=="f"){
+
+            document.getElementById('f').style.backgroundColor = "darkorange";
+            document.getElementById('f').style.fontSize = "60px";
+            document.getElementById('faudio').pause();
+            document.getElementById('faudio').currentTime = "0";
+            document.getElementById('f').style.borderColor = "black";
+        }
+        if(c=="g"){
+
+            document.getElementById('g').style.backgroundColor = "darkorange";
+            document.getElementById('g').style.fontSize = "60px";
+            document.getElementById('gaudio').pause();
+            document.getElementById('gaudio').currentTime = "0";
+            document.getElementById('g').style.borderColor = "black";
+        }
+        if(c=="h"){
+
+            document.getElementById('h').style.backgroundColor = "darkorange";
+            document.getElementById('h').style.fontSize = "60px";
+            document.getElementById('haudio').pause();
+            document.getElementById('haudio').currentTime = "0";
+            document.getElementById('h').style.borderColor = "black";
+        }
+        if(c=="j"){
+
+            document.getElementById('j').style.backgroundColor = "darkorange";
+            document.getElementById('j').style.fontSize = "60px";
+            document.getElementById('jaudio').pause();
+            document.getElementById('jaudio').currentTime = "0";
+            document.getElementById('j').style.borderColor = "black";
+        }
+        if(c=="k"){
+
+            document.getElementById('k').style.backgroundColor = "darkorange";
+            document.getElementById('k').style.fontSize = "60px";
+            document.getElementById('kaudio').pause();
+            document.getElementById('kaudio').currentTime = "0";
+            document.getElementById('k').style.borderColor = "black";
+        }
+        if(c=="l"){
+
+            document.getElementById('l').style.backgroundColor = "darkorange";
+            document.getElementById('l').style.fontSize = "60px";
+            document.getElementById('laudio').pause();
+            document.getElementById('laudio').currentTime = "0";
+            document.getElementById('l').style.borderColor = "black";
+        }
+        console.log(e);
+     }
+     
+    
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="keys" id="a"><audio src="sounds/a.mp3" id="aaudio"></audio>A</div>
+        <div class="keys" id="s"><audio src="sounds/s.mp3" id="saudio"></audio>S</div>
+        <div class="keys" id="d"><audio src="sounds/d.mp3" id="daudio"></audio>D</div>
+        <div class="keys" id="f"><audio src="sounds/f.mp3" id="faudio"></audio>F</div>
+        <div class="keys" id="g"><audio src="sounds/g.mp3" id="gaudio"></audio>G</div>
+        <div class="keys" id="h"><audio src="sounds/h.mp3" id="haudio"></audio>H</div>
+        <div class="keys" id="j"><audio src="sounds/j.mp3" id="jaudio"></audio>J</div>
+        <div class="keys" id="k"><audio src="sounds/k.mp3" id="kaudio"></audio>K</div>
+        <div class="keys" id="l"><audio src="sounds/l.mp3" id="laudio"></audio>L</div>
+    </div>
+</body>
+</html>
