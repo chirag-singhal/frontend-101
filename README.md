@@ -18,5 +18,3 @@
 
      * B (JAVASCRIPT)
   - [Task #B1 - Drums](https://chirag-singhal.github.io/frontend-101/SetB/B1.html)
-
-
