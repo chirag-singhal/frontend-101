@@ -13,10 +13,10 @@
      - Making a responsive Navigation 
   - [Task #A5 - 3D Buttons](https://chirag-singhal.github.io/frontend-101/SetA/A5.html)
      - 3D Buttons made using CSS
-  - [Task #A6 - DVM Logo](https://chirag-singhal.github.io/frontend-101/SetA/A6.html)
-     - SVG Animations
   - [Task #A7 - The X Factor](https://chirag-singhal.github.io/frontend-101/SetA/A7.html)
      - CSS Gradients used to create home screen wallpaper of iPhone X
-  - [Task #A8 - Clip Clip Clip](https://chirag-singhal.github.io/frontend-101/SetA/A8.html)
-     - Using CSS Clip-Path Property to create animation as in [Species In Pieces](http://www.species-in-pieces.com/)
+
+     * B (JAVASCRIPT)
+  - [Task #B1 - Drums](https://chirag-singhal.github.io/frontend-101/SetB/B1.html)
+
 
