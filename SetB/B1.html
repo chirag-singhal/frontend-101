@@ -38,17 +38,17 @@
         <div class="keys" id="l" onmousedown="onaudioL()" onmouseup="offaudioL()"><audio src="sounds/l.mp3" id="laudio"></audio>L</div>
     </div>
 
-        <script>
+    <script>
      window.addEventListener("keydown",audio);
-     akey = document.getElementById('a');
-     skey = document.getElementById('s');
-     dkey = document.getElementById('d');
-     fkey = document.getElementById('f');
-     gkey = document.getElementById('g');
-     hkey = document.getElementById('h');
-     jkey = document.getElementById('j');
-     kkey = document.getElementById('k');
-     lkey = document.getElementById('l');
+     var akey = document.getElementById('a');
+     var skey = document.getElementById('s');
+     var dkey = document.getElementById('d');
+     var fkey = document.getElementById('f');
+     var gkey = document.getElementById('g');
+     var hkey = document.getElementById('h');
+     var jkey = document.getElementById('j');
+     var kkey = document.getElementById('k');
+     var lkey = document.getElementById('l');
 
      
      function onaudioA(){
@@ -108,25 +108,35 @@
      function audio(e){
         var c = e.key;
         switch(c){
+        case 'a':
            onaudioA();
-        }
+           break;
         case 's':
           onaudioS();
+          break;
         case 'd' :
            onaudioD();
+           break;
         case 'f' :
            onaudioF();
+           break;
         case 'g' :
            onaudioG();
+           break;
         case 'h' :
            onaudioH();
+           break;
         case 'j' :
            onaudioJ();
+           break;
         case 'k' :
            onaudioK();
+           break;
         case 'l' :
            onaudioL();
+           break;
      }
+    }
      function offaudioA(){
             akey.style.backgroundColor = "darkorange";
             akey.style.fontSize = "60px";
@@ -195,26 +205,35 @@
      function upaudio(e){
         var c = e.key;
         switch(c){
+        case 'a':
            offaudioA();
-        }
+           break;
         case 's':
           offaudioS();
+           break;
         case 'd' :
            offaudioD();
+           break;
         case 'f' :
            offaudioF();
+           break;
         case 'g' :
            offaudioG();
+           break;
         case 'h' :
            offaudioH();
+           break;
         case 'j' :
            offaudioJ();
+           break;
         case 'k' :
            offaudioK();
+           break;
         case 'l' :
            offaudioL();
+           break;
      }
-     }
+    }
     
     </script>
 
