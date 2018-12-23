@@ -33,6 +33,7 @@
             background-color: lightgoldenrodyellow;
             display: flex;
             justify-content: center;
+            position: absolute;
         }
         .second{
             width: 2px;
@@ -44,34 +45,51 @@
         }
         .minute{
             width: 3px;
-            height: 30.1vh;
+            height: 30vh;
             background-color: black;
             position: relative;
             top: 10vh;  
             transform-origin: 50% 100%;
-            transform: translateX(-3px) translateY(-3px);
         }
         .hour{
             width: 4px;
             height: 20vh;
             background-color: black;
             position: relative; 
-            top: 20vh;
+            top: 20.5vh;
             transform-origin: 50% 100%;
+        }
+        .cir{
+            position: relative;
+            height: 2vh;
+            width: 2vh;
+            background-color: black;
+            border-radius: 50%;
+            top: 39vh;
+            left: 2vh;
         }
     </style>
     <script>
-        var date = new Date();
-        var second = date.getSeconds();
-        var minute = date.getMinutes();
-        var hour = date.getHours();
-        var secdeg = second * 6;
-        var mindeg = minute * 6;
-        var hrdeg = (hour%12)*6;
-        console.log(secdeg);
-        document.getElementsByClassName("second").style.transform = "rotateZ("+secdeg+"deg)";
-        document.getElementsByClassName('hour').style.transform = "rotateZ("+hrdeg+"deg)";
-        document.getElementsByClassName('minute').style.transform = "rotateZ("+mindeg+"deg)";
+        setInterval(function(){
+            var time = new Date();
+
+            var hour = document.getElementById("hr");
+            var minute = document.getElementById("min");
+            var second = document.getElementById("sec");
+            if(time.getHours()>12){
+                var hoursangle = (time.getHours()-12)*30;
+            }
+            else{
+                var hoursangle =  time.getHours()*30;   
+            }
+            var minutesangle = (time.getMinutes() )*6;
+            var secondsangle =(time.getSeconds()) *6;
+            
+            hour.style.transform = `rotateZ(${hoursangle}deg)`;
+            minute.style.transform = `rotateZ(${minutesangle}deg)`;
+            second.style.transform = `rotateZ(${secondsangle}deg)`;
+            
+        },1000);
         
     </script>
 </head>
@@ -79,9 +97,10 @@
     <div class="container">
         <div class="clock-base">
             <div class="clock-main">
-                <div class="hour"></div>
-                <div class="second"></div>
-                <div class="minute"></div>
+                <div class="cir"></div>
+                <div class="hour" id="hr"></div>
+                <div class="second" id="sec"></div>
+                <div class="minute" id="min"></div>
             </div>
         </div>
     </div>

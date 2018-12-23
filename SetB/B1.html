@@ -26,20 +26,26 @@
     </style>
     <script>
      window.addEventListener("keydown",audio);
-    
+     
+     function onaudioA(){
+            document.getElementById('a').style.backgroundColor = "black";
+            document.getElementById('a').style.fontSize = "54px";
+            document.getElementById('aaudio').play();
+            document.getElementById('a').style.borderColor = "darkorange";
+     }
+     function onaudioB(){
+            document.getElementById('s').style.backgroundColor = "black";
+            document.getElementById('s').style.fontSize = "54px";
+            document.getElementById('saudio').play();
+            document.getElementById('s').style.borderColor = "darkorange";
+     }
      function audio(e){
         var c = e.key;
         if(c=="a"){
-           document.getElementById('a').style.backgroundColor = "black";
-           document.getElementById('a').style.fontSize = "54px";
-           document.getElementById('aaudio').play();
-           document.getElementById('a').style.borderColor = "darkorange";
+           onaudioA();
         }
         if(c=="s"){
-           document.getElementById('s').style.backgroundColor = "black";
-           document.getElementById('s').style.fontSize = "54px";
-           document.getElementById('saudio').play();
-           document.getElementById('s').style.borderColor = "darkorange";
+          onaudioB();
         }
         if(c=="d"){
            document.getElementById('d').style.backgroundColor = "black";
@@ -162,7 +168,6 @@
             document.getElementById('l').style.borderColor = "black";
         }
      }
-     
     
     </script>
 </head>
