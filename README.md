@@ -20,3 +20,5 @@
   - [Task #B1 - Drums](https://chirag-singhal.github.io/frontend-101/SetB/B1.html)
   - [Task #B2 - Clock](https://chirag-singhal.github.io/frontend-101/SetB/B2.html)
      - Clock made using JavaScript
+  - [Task #B3 - Multiple Select](https://chirag-singhal.github.io/frontend-101/SetB/B3.html)
+     - Making multiple selection possible using `Shift key` for checkboxes 
