@@ -22,3 +22,6 @@
      - Clock made using JavaScript
   - [Task #B3 - Multiple Select](https://chirag-singhal.github.io/frontend-101/SetB/B3.html)
      - Making multiple selection possible using `Shift key` for checkboxes 
+  - [Task #B4 - Sequence Detector](https://chirag-singhal.github.io/frontend-101/SetB/B4.html)
+     - Detecting a particular sequence as entered by the user(in this case it is "DVM" - all caps)
+
