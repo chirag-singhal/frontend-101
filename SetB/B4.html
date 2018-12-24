@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>B4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{
+            font-family: cursive;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <p></p>
+   <script>
+       var first_letter=second_letter=third_letter=-1;
+        window.addEventListener("keydown",dvm);
+        function dvm(e){
+            // console.log(first_letter);
+            // console.log(second_letter);
+            var key = e.key;
+            if(key=="D"){
+                first_letter=1;
+                // console.log(first_letter);
+                // console.log(second_letter);
+            }
+            else if(first_letter && key=='V'){
+                second_letter=1;
+                // console.log(first_letter);
+                // console.log(second_letter);
+            }
+            else if(first_letter && second_letter && key=='M'){
+                // console.log("sucess");
+                document.body.innerHTML+="Front-End development is fun.<br>"
+                first_letter=0;
+                second_letter=0;
+            }
+            else if(key == 'Shift' || key == "CapsLock"){
+                // var d = "shift or caps";
+                // console.log(d);
+                // console.log(first_letter);
+                // console.log(second_letter);
+            }
+            else{
+                // var c= "not anything";
+                // console.log(c);
+                first_letter=second_letter=0;
+                // console.log(first_letter);
+                // console.log(second_letter);
+            }     
+            console.log(e);
+        }
+   </script> 
+</body>
+</html>
