@@ -66,9 +66,12 @@
         var input = document.getElementsByTagName('input');
         var initially_checked , later_checked;
         var shiftpressed = -1;
-        function checkAll(start,end){
-            console.log(88);
-            for(var i = start; i < end ; i++)
+        // for(var i=0;i<7;i++){
+        //     input[i].checked=true;
+        // }
+        function checkAll(checkedfirst,checkedlater){
+            console.log(checkAll);
+            for(var i = checkedfirst; i <checkedlater  ; i++)
             {
                 input[i].checked = true;
             }
@@ -88,10 +91,10 @@
                         later_checked = this.id;
                         console.log(later_checked);
                         if(initially_checked<later_checked){
-                            checkAll(later_checked,initially_checked);
+                            checkAll(initially_checked,later_checked);
                         }
                         else{
-                            checkAll(initially_checked,later_checked);
+                            checkAll(later_checked,initially_checked);
                         }
                 }
                 else{
