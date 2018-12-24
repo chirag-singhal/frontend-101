@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>B3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body{
+       margin: 0;
+       height: 100vh;
+       width: 100vw;
+       background-color: steelblue;
+       display: flex;
+       align-items: center;
+       justify-content: center; 
+       font-family: cursive;
+       font-size: 2vh;
+    }
+    td{
+        padding: 25px ;
+        border: 1px black solid;
+    }
+    table{
+        background-color: white;
+        border: 2px solid black;
+        border-collapse: collapse;
+    }
+    tr{
+        border: 1px solid black;
+    }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><input type="checkbox" class="box" id="1"></td>
+            <td>This is an inbox layout.</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="box" id="2"></td>
+            <td>Check one item</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="box" id="3"></td>
+            <td>Hold down your shift key</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="box" id="4"></td>
+            <td>Check a lower item</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="box" id="5"></td>
+            <td>Everything in between should also be set to checked</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="box" id="6"></td>
+            <td>Try to do it without any libraries</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="box" id="7"></td>
+            <td>Just regular javascript</td>
+        </tr>
+    </table>
+    <script>
+        var input = document.getElementsByTagName('input');
+        var initially_checked , later_checked;
+        var shiftpressed = -1;
+        function checkAll(start,end){
+            console.log(88);
+            for(var i = start; i < end ; i++)
+            {
+                input[i].checked = true;
+            }
+        }
+        document.addEventListener('keydown',function(){
+            shiftpressed = 1;
+            console.log(shiftpressed);
+        });
+        document.addEventListener('keyup',function(){
+            shiftpressed = 0;
+            console.log(shiftpressed);
+        });
+        for(var i= 0; i<input.length;i++){
+            input[i].addEventListener("click", function(){
+                if(this.checked == true){
+                    if(shiftpressed && initially_checked > -1){
+                        later_checked = this.id;
+                        console.log(later_checked);
+                        if(initially_checked<later_checked){
+                            checkAll(later_checked,initially_checked);
+                        }
+                        else{
+                            checkAll(initially_checked,later_checked);
+                        }
+                }
+                else{
+                initially_checked = this.id;
+                }
+                    console.log(initially_checked);
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>
