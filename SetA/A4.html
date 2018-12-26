@@ -50,11 +50,11 @@
                 flex-wrap: wrap;
             }
             .bars{
-                width: 40px;
+                width: 30px;
                 height: 3px;
                 background-color: white;
                 margin: 5px;
-                transition: animation 1s;
+                transition: animation 0.5s;
             }
             .ham-links{
                display: flex;
@@ -68,8 +68,7 @@
                position: absolute;
                top: 10vh;
                left: -200px;
-               transition: 1s ease-out;
-               
+               transition: 0.5s ease-out;  
             }
             .ham-logo{
                margin-left: 35vw;
@@ -78,17 +77,30 @@
                 margin-left: 20px;
             }
             @keyframes bar-top1 {
-                100%{transform: translateY(-11px) translateX(2px) rotate(45deg)}
+                0%{transform: translateY(0) translateX(0) rotate(0);}
+                100%{transform: translateY(-6px) translateX(2px) rotate(45deg);}
             }
             @keyframes bar-down1 {
-                100%{transform: translateY(1px) translateX(-2px) rotate(-45deg)}
+                0%{transform: translateY(0) translateX(0) rotate(0);}
+                100%{transform: translateY(0px) translateX(0px) rotate(-45deg);}
             }
             @keyframes bar-top2 {
+                0%{transform: translateY(-6px) translateX(2px) rotate(45deg);}
                 100%{transform: translateY(0px) translateX(0) rotate(0deg)}
             }
             @keyframes bar-down2 {
-                100%{transform: translateY(0px) translateX(0) rotate(0deg)}
+                0%{transform: translateY(0px) translateX(0px) rotate(-45deg);}
+                100%{transform: translateY(0px) translateX(0) rotate(0deg);}
             }
+            @keyframes bar-middle1{
+                0%{opacity: 1;}
+                100%{opacity: 0;}
+                
+            } 
+            @keyframes bar-middle2{
+                0%{opacity: 0;}
+                100%{opacity: 1;}
+            } 
         }   
     </style>
     <script>
@@ -105,18 +117,18 @@
             document.getElementById('hamlink').style.left ="0";
             document.getElementById('bar1').style.transformOrigin = "0 0";
             document.getElementById('bar3').style.transformOrigin = "0 0";
-            document.getElementById('bar1').style.animation= "bar-top1 1s forwards";
-            document.getElementById('bar2').style.opacity= "0";
-            document.getElementById('bar3').style.animation= "bar-down1 1s forwards";
+            document.getElementById('bar1').style.animation= "bar-top1 0.5s forwards";
+            document.getElementById('bar2').style.animation = "bar-middle1 0.5s forwards";
+            document.getElementById('bar3').style.animation= "bar-down1 0.5s forwards";
             x=0;
         }
         function closenav(){
             document.getElementById('hamlink').style.left ="-200px";
             document.getElementById('bar1').style.transformOrigin = "0 0";
             document.getElementById('bar3').style.transformOrigin = "0 0";
-            document.getElementById('bar1').style.animation= "bar-top2 1s forwards";
-            document.getElementById('bar3').style.animation= "bar-down2 1s forwards";
-            document.getElementById('bar2').style.opacity= "1";
+            document.getElementById('bar1').style.animation= "bar-top2 0.5s forwards";
+            document.getElementById('bar3').style.animation= "bar-down2 0.5s forwards";
+            document.getElementById('bar2').style.animation = "bar-middle2 0.5s forwards";
             x=1;
         }
         console.log(x);
