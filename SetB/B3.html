@@ -65,10 +65,7 @@
     <script>
         var input = document.getElementsByTagName('input');
         var initially_checked , later_checked;
-        var shiftpressed = -1;
-        // for(var i=0;i<7;i++){
-        //     input[i].checked=true;
-        // }
+        var shiftpressed = 0;
         function checkAll(checkedfirst,checkedlater){
             console.log(checkAll);
             for(var i = checkedfirst; i <checkedlater  ; i++)
@@ -76,14 +73,22 @@
                 input[i].checked = true;
             }
         }
-        document.addEventListener('keydown',function(){
-            shiftpressed = 1;
+        document.addEventListener('keydown',shiftdown);
+        function shiftdown(e){
+            let b = e.key;
+            if(b == 'Shift'){
+                 shiftpressed = 1;
+            }
             console.log(shiftpressed);
-        });
-        document.addEventListener('keyup',function(){
-            shiftpressed = 0;
+        }
+        document.addEventListener('keyup',shiftup);
+        function shiftup(e){
+            let a = e.key;
+            if(a == 'Shift'){
+                 shiftpressed = 0;
+            }
             console.log(shiftpressed);
-        });
+        }
         for(var i= 0; i<input.length;i++){
             input[i].addEventListener("click", function(){
                 if(this.checked == true){
@@ -100,7 +105,6 @@
                 else{
                 initially_checked = this.id;
                 }
-                    console.log(initially_checked);
                 }
             });
         }
