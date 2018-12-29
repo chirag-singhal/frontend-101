@@ -26,7 +26,7 @@
      - Making multiple selection possible using `Shift key` for checkboxes 
   - [Task #B4 - Sequence Detector](https://chirag-singhal.github.io/frontend-101/SetB/B4.html)
      - Detecting a particular sequence as entered by the user(in this case it is "DVM" - all caps)
-  - [Task #B5 - Image Slide In](https://chirag-singhal.github.io/frontend-101/SetB/5.html)
+  - [Task #B5 - Image Slide In](https://chirag-singhal.github.io/frontend-101/SetB/B5.html)
      - Triggering animations when user reaches a particular part of the page by scrolling
   - [Task #B6 - FrontEnd Tech](https://chirag-singhal.github.io/frontend-101/SetB/B6.html)
      - Storing data locally on user's browser 
