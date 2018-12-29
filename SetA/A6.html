@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>A6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+                background: black;
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                overflow: hidden;
+                width: 100vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            svg {
+                height: 800px;
+                width: 800px;
+            }
+            .d-solid {
+                stroke:#fff;
+                stroke-dasharray: 3000;
+                stroke-dashoffset: -3000;
+                stroke-width: 7;
+                animation: d-anim 1.5s forwards ease-in;
+            }
+            @keyframes d-anim{
+                0%{stroke-dashoffset: -3000;fill: black;}
+                60%{stroke-dashoffset: 0;fill: black;}
+                100%{stroke-dashoffset: 0; fill: white;}
+            }
+            .v-solid {
+                stroke: #ff3f8a;
+                stroke-dasharray: 2000;
+                stroke-dashoffset: -2000;
+                stroke-width: 7;
+                animation: v-anim 1.5s forwards ease-in;
+                animation-delay: 0.5s;
+            }
+            @keyframes v-anim{
+                0%{stroke-dashoffset: -2000;fill: black;}
+                60%{stroke-dashoffset: 0;fill: black;}
+                100%{stroke-dashoffset: 0; fill: #ff3f8a;}
+            }
+            .m-solid {
+                stroke: #fff;
+                stroke-dasharray: 3000;
+                stroke-dashoffset: -3000;
+                stroke-width: 7;
+                animation: m-anim 1.5s forwards ease-in;
+                animation-delay: 1s;
+            }
+            @keyframes m-anim{
+                0%{stroke-dashoffset: -3000;fill: black;}
+                60%{stroke-dashoffset: 0;fill: black;}
+                100%{stroke-dashoffset: 0; fill: white;}
+            }
+    </style>
+</head>
+<body>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 1080">
+
+        <polygon class="d-solid" points="560.5,68.5 865.5,459.5 865.5,584.5 635.5,286.5 636.5,814.5 737.5,727.5 785.5,795.5 560.5,979.5 "/>
+        <polygon class="v-solid" points="757.5,672.5 933.5,891.5 1244.5,460.5 1244.5,320.5 936.5,747.5 757.5,547.5 "/>
+        <polygon class="m-solid" points="1288.5,152.5 1288.5,906.5 1370.5,987.5 1370.5,56.5 "/>
+        
+        </svg>
+</body>
+</html>

@@ -13,6 +13,8 @@
      - Making a responsive Navigation 
   - [Task #A5 - 3D Buttons](https://chirag-singhal.github.io/frontend-101/SetA/A5.html)
      - 3D Buttons made using CSS
+  - [Task #A6 - DVM Logo](https://chirag-singhal.github.io/frontend-101/SetA/A6.html)
+     - SVG Animations
   - [Task #A7 - The X Factor](https://chirag-singhal.github.io/frontend-101/SetA/A7.html)
      - CSS Gradients used to create home screen wallpaper of iPhone X
 
@@ -24,4 +26,8 @@
      - Making multiple selection possible using `Shift key` for checkboxes 
   - [Task #B4 - Sequence Detector](https://chirag-singhal.github.io/frontend-101/SetB/B4.html)
      - Detecting a particular sequence as entered by the user(in this case it is "DVM" - all caps)
+  - [Task #B5 - Image Slide In](https://chirag-singhal.github.io/frontend-101/SetB/5.html)
+     - Triggering animations when user reaches a particular part of the page by scrolling
+  - [Task #B6 - FrontEnd Tech](https://chirag-singhal.github.io/frontend-101/SetB/B6.html)
+     - Storing data locally on user's browser 
 
