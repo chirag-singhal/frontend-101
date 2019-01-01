@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>B10</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: cursive;
+        }
+        p{
+            width: 650px;
+        }
+        #input_user{
+            width: 200px;
+            padding: 5px;
+        }
+        .search{
+            margin-top: 20px;
+            padding: 4px;
+        }
+        #name{
+            width: auto;
+            height: 40px;
+            font-size: 25px;
+            line-height: 40px;
+        }
+        #bio{
+            width: 650px;
+        }
+        #avatar{
+            height: 150px;
+            width: 150px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+        <h1>Fetch GitHub Profile</h1>
+        <p>Enter the username and click 'Search' to print the user's name, GitHub avatar and bio</p>
+        <input id="input_user" type="text">
+        <button class="search" type="submit" onclick="searchfetch()">Search using Fetch</button>
+        <button class="search" type="submit" onclick="searchxml()">Search using XML request</button>
+        <div id="name"></div>
+        <div id="avatar"></div>
+        <div id="bio"></div>
+    <script>
+        var input = document.getElementById('input_user');
+        var avatar = document.getElementById('avatar');
+        var names = document.getElementById('name');
+        var bio = document.getElementById('bio');
+        function gitsearch(username){
+            console.log(username);
+            fetch(`https://api.github.com/users/${username}`)
+            .then((Response) => {
+                if(Response.status==200)
+                {return Response.json();}
+                else {
+                    throw error;
+                    
+                }
+            })
+            .then((gituser) => {
+                console.log(gituser);
+                avatar.style.background = `url(${gituser.avatar_url})`;
+                avatar.style.backgroundSize = "cover";
+                names.innerHTML = gituser.name;
+                bio.innerHTML = gituser.bio;
+            })
+            .catch(error => alert("Error"))
+        }
+        function searchfetch(){
+            gitsearch(input.value);
+            console.log(input.value);
+            input.value = "";
+        }
+        function searchxml(){
+            let username = input.value;
+            input.value = "";
+            let xml = new XMLHttpRequest();
+            xml.open('GET',`https://api.github.com/users/${username}`);
+            xml.send();
+            xml.onload = function(){
+                avatar.style.background = `url(${xml.avatar_url})`;
+                avatar.style.backgroundSize = "cover";
+                names.innerHTML = xml.name;
+                bio.innerHTML = xml.bio;
+            }
+        }
+    </script>
+</body>
+</html>
