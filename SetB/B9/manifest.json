@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "RaterFox",
+    "description": "Simple Chrome Extension",
+    "version": "1",
+    "author": "Chirag Singhal",
+    "content_scripts": [
+    {
+      "matches": [
+        "https://www.bits-oasis.org/2018main/","https://bits-apogee.org/2019intro/"
+      ],
+      "js": ["console.js"]
+    }
+  ],
+    "browser_action": {
+    "default_title": "Chirag Singhal"
+    },
+   "chrome_url_overrides" : {
+     "newtab": "newtab.html"
+   },
+    "permissions": ["activeTab"]
+   }
+  
