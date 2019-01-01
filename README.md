@@ -17,7 +17,8 @@
      - SVG Animations
   - [Task #A7 - The X Factor](https://chirag-singhal.github.io/frontend-101/SetA/A7.html)
      - CSS Gradients used to create home screen wallpaper of iPhone X
-
+  - [Task #A8 - Clip Clip Clip](https://chirag-singhal.github.io/frontend-101/SetA/A8.html)
+     - Using CSS Clip-Path Property 
 * B (JAVASCRIPT)
   - [Task #B1 - Drums](https://chirag-singhal.github.io/frontend-101/SetB/B1.html)
   - [Task #B2 - Clock](https://chirag-singhal.github.io/frontend-101/SetB/B2.html)
