@@ -31,4 +31,7 @@
      - Triggering animations when user reaches a particular part of the page by scrolling
   - [Task #B6 - FrontEnd Tech](https://chirag-singhal.github.io/frontend-101/SetB/B6.html)
      - Storing data locally on user's browser 
+  - [Task #B9 - Basic Chrome Extension](https://github.com/chirag-singhal/frontend-101/tree/gh-pages/SetB/SetB9)
+     - Making a very simple Chrome Web Extension
+
 
