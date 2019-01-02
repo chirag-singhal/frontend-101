@@ -98,24 +98,26 @@
             front.appendChild(close);
         }
         function addfront(){
-            inputitem.push(input.value);
-            var front = document.createElement('div');
-            cont.appendChild(front);
-            front.className = "front";
+            if(input.value != ""){
+                inputitem.push(input.value);
+                var front = document.createElement('div');
+                cont.appendChild(front);
+                front.className = "front";
 
-            var front_input = document.createElement('div');
-            front_input.className = "front_input";
-            front_input.innerHTML = input.value;
-            front.appendChild(front_input);
+                var front_input = document.createElement('div');
+                front_input.className = "front_input";
+                front_input.innerHTML = input.value;
+                front.appendChild(front_input);
 
-            console.log(input.value);
+                console.log(input.value);
 
-            var close = document.createElement('div');
-            close.className = "close";
-            close.setAttribute("onclick","removefront(this)");
-            front.appendChild(close);
-            localStorage.setItem('front_techs',JSON.stringify(inputitem));
-            input.value  = '';
+                var close = document.createElement('div');
+                close.className = "close";
+                close.setAttribute("onclick","removefront(this)");
+                front.appendChild(close);
+                localStorage.setItem('front_techs',JSON.stringify(inputitem));
+                input.value  = '';
+            }
         }
         function removefront(remove){
             remove.parentNode.parentNode.removeChild(remove.parentNode);
