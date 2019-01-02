@@ -50,189 +50,347 @@
      var kkey = document.getElementById('k');
      var lkey = document.getElementById('l');
 
-     
-     function onaudioA(){
-            akey.style.backgroundColor = "black";
-            akey.style.fontSize = "54px";
-            document.getElementById('aaudio').play();
-            akey.style.borderColor = "darkorange";
-     }
-     function onaudioS(){
-            skey.style.backgroundColor = "black";
-            skey.style.fontSize = "54px";
-            document.getElementById('saudio').play();
-            skey.style.borderColor = "darkorange";
-     }
-     function onaudioD(){
-           dkey.style.backgroundColor = "black";
-           dkey.style.fontSize = "54px";
-           document.getElementById('daudio').play();
-           dkey.style.borderColor = "darkorange";
-     }
-     function onaudioF(){
-            fkey.style.backgroundColor = "black";
-           fkey.style.fontSize = "54px";
-           document.getElementById('faudio').play();
-           fkey.style.borderColor = "darkorange";
-     }
-     function onaudioG(){
-            gkey.style.backgroundColor = "black";
-           gkey.style.fontSize = "54px";
-           document.getElementById('gaudio').play();
-           gkey.style.borderColor = "darkorange";
-     }
-     function onaudioH(){
-            hkey.style.backgroundColor = "black";
-           hkey.style.fontSize = "54px";
-           document.getElementById('haudio').play();
-           hkey.style.borderColor = "darkorange";
-     }
-     function onaudioJ(){
-            jkey.style.backgroundColor = "black";
-           jkey.style.fontSize = "54px";
-           document.getElementById('jaudio').play();
-           jkey.style.borderColor = "darkorange";
-     }
-     function onaudioK(){
-            kkey.style.backgroundColor = "black";
-           kkey.style.fontSize = "54px";
-           document.getElementById('kaudio').play();
-           kkey.style.borderColor = "darkorange";
-     }
-     function onaudioL(){
-            lkey.style.backgroundColor = "black";
-           lkey.style.fontSize = "54px";
-           document.getElementById('laudio').play();
-           lkey.style.borderColor = "darkorange";
-     }
+     var keys = [
+         {
+             key: 'a',
+             on :  function(){
+                        akey.style.backgroundColor = "black";
+                        akey.style.fontSize = "54px";
+                        document.getElementById('aaudio').play();
+                        akey.style.borderColor = "darkorange";
+                        },
+            off :  function(){
+                        akey.style.backgroundColor = "darkorange";
+                        akey.style.fontSize = "60px";
+                        document.getElementById('aaudio').pause();
+                        document.getElementById('aaudio').currentTime = "0";
+                        akey.style.borderColor = "black";
+                    }
+         },
+         {
+             key: 's',
+             on :  function(){
+                        skey.style.backgroundColor = "black";
+                        skey.style.fontSize = "54px";
+                        document.getElementById('saudio').play();
+                        skey.style.borderColor = "darkorange";
+                    },
+            off :   function(){
+                        skey.style.backgroundColor = "darkorange";
+                        skey.style.fontSize = "60px";
+                        document.getElementById('saudio').pause();
+                        document.getElementById('saudio').currentTime = "0";
+                        skey.style.borderColor = "black";
+                    }
+         },
+         {
+             key: 'd',
+             on :  function onaudioD(){
+                        dkey.style.backgroundColor = "black";
+                        dkey.style.fontSize = "54px";
+                        document.getElementById('daudio').play();
+                        dkey.style.borderColor = "darkorange";
+                    },
+            off :   function(){
+                        dkey.style.backgroundColor = "darkorange";
+                        dkey.style.fontSize = "60px";
+                        document.getElementById('daudio').pause();
+                        document.getElementById('daudio').currentTime = "0";
+                        dkey.style.borderColor = "black";
+                    }
+         },
+         {
+             key: 'f',
+             on :  function(){
+                        fkey.style.backgroundColor = "black";
+                        fkey.style.fontSize = "54px";
+                        document.getElementById('faudio').play();
+                        fkey.style.borderColor = "darkorange";
+                    },
+            off :   function(){
+                        fkey.style.backgroundColor = "darkorange";
+                        fkey.style.fontSize = "60px";
+                        document.getElementById('faudio').pause();
+                        document.getElementById('faudio').currentTime = "0";
+                        fkey.style.borderColor = "black";
+                    }
+         },
+         {
+             key: 'g',
+             on :  function(){
+                        gkey.style.backgroundColor = "black";
+                        gkey.style.fontSize = "54px";
+                        document.getElementById('gaudio').play();
+                        gkey.style.borderColor = "darkorange";
+                    },
+            off :   function(){
+                        gkey.style.backgroundColor = "darkorange";
+                        gkey.style.fontSize = "60px";
+                        document.getElementById('gaudio').pause();
+                        document.getElementById('gaudio').currentTime = "0";
+                        gkey.style.borderColor = "black";
+                    }
+         },
+         {
+             key: 'h',
+             on :  function(){
+                        hkey.style.backgroundColor = "black";
+                        hkey.style.fontSize = "54px";
+                        document.getElementById('haudio').play();
+                        hkey.style.borderColor = "darkorange";
+                    },
+            off :   function(){
+                        hkey.style.backgroundColor = "darkorange";
+                        hkey.style.fontSize = "60px";
+                        document.getElementById('haudio').pause();
+                        document.getElementById('haudio').currentTime = "0";
+                        hkey.style.borderColor = "black";
+                    }
+         },
+         {
+             key: 'j',
+             on :  function(){
+                        jkey.style.backgroundColor = "black";
+                        jkey.style.fontSize = "54px";
+                        document.getElementById('jaudio').play();
+                        jkey.style.borderColor = "darkorange";
+                    },
+            off :   function(){
+                        jkey.style.backgroundColor = "darkorange";
+                        jkey.style.fontSize = "60px";
+                        document.getElementById('jaudio').pause();
+                        document.getElementById('jaudio').currentTime = "0";
+                        jkey.style.borderColor = "black";
+                    }
+         },
+         {
+             key: 'k',
+             on :  function(){
+                        kkey.style.backgroundColor = "black";
+                        kkey.style.fontSize = "54px";
+                        document.getElementById('kaudio').play();
+                        kkey.style.borderColor = "darkorange";
+                    },
+            off :   function(){
+                        kkey.style.backgroundColor = "darkorange";
+                        kkey.style.fontSize = "60px";
+                        document.getElementById('kaudio').pause();
+                        document.getElementById('kaudio').currentTime = "0";
+                        kkey.style.borderColor = "black";
+                    }
+         },
+         {
+             key: 'l',
+             on :  function(){
+                        lkey.style.backgroundColor = "black";
+                        lkey.style.fontSize = "54px";
+                        document.getElementById('laudio').play();
+                        lkey.style.borderColor = "darkorange";
+                    },
+            off :   function(){
+                        lkey.style.backgroundColor = "darkorange";
+                        lkey.style.fontSize = "60px";
+                        document.getElementById('laudio').pause();
+                        document.getElementById('laudio').currentTime = "0";
+                        lkey.style.borderColor = "black";
+                    }
+         }
+     ]
+    //  function onaudioA(){
+    //     akey.style.backgroundColor = "black";
+    //     akey.style.fontSize = "54px";
+    //     document.getElementById('aaudio').play();
+    //     akey.style.borderColor = "darkorange";
+    // }
+    //  function onaudioS(){
+    //         skey.style.backgroundColor = "black";
+    //         skey.style.fontSize = "54px";
+    //         document.getElementById('saudio').play();
+    //         skey.style.borderColor = "darkorange";
+    //  }
+    //  function onaudioD(){
+    //        dkey.style.backgroundColor = "black";
+    //        dkey.style.fontSize = "54px";
+    //        document.getElementById('daudio').play();
+    //        dkey.style.borderColor = "darkorange";
+    //  }
+    //  function onaudioF(){
+    //         fkey.style.backgroundColor = "black";
+    //        fkey.style.fontSize = "54px";
+    //        document.getElementById('faudio').play();
+    //        fkey.style.borderColor = "darkorange";
+    //  }
+    //  function onaudioG(){
+    //         gkey.style.backgroundColor = "black";
+    //         gkey.style.fontSize = "54px";
+    //         document.getElementById('gaudio').play();
+    //         gkey.style.borderColor = "darkorange";
+    //  }
+    //  function onaudioH(){
+    //         hkey.style.backgroundColor = "black";
+    //         hkey.style.fontSize = "54px";
+    //         document.getElementById('haudio').play();
+    //         hkey.style.borderColor = "darkorange";
+    //  }
+    //  function onaudioJ(){
+    //         jkey.style.backgroundColor = "black";
+    //         jkey.style.fontSize = "54px";
+    //         document.getElementById('jaudio').play();
+    //         jkey.style.borderColor = "darkorange";
+    //  }
+    //  function onaudioK(){
+    //         kkey.style.backgroundColor = "black";
+    //         kkey.style.fontSize = "54px";
+    //         document.getElementById('kaudio').play();
+    //         kkey.style.borderColor = "darkorange";
+    //     }
+    //  function onaudioL(){
+    //         lkey.style.backgroundColor = "black";
+    //         lkey.style.fontSize = "54px";
+    //         document.getElementById('laudio').play();
+    //         lkey.style.borderColor = "darkorange";
+    //  }
      function audio(e){
-        var c = e.key;
-        switch(c){
-        case 'a':
-           onaudioA();
-           break;
-        case 's':
-          onaudioS();
-          break;
-        case 'd' :
-           onaudioD();
-           break;
-        case 'f' :
-           onaudioF();
-           break;
-        case 'g' :
-           onaudioG();
-           break;
-        case 'h' :
-           onaudioH();
-           break;
-        case 'j' :
-           onaudioJ();
-           break;
-        case 'k' :
-           onaudioK();
-           break;
-        case 'l' :
-           onaudioL();
-           break;
-     }
+        let c = e.key;
+        console.log(e);
+        keys.forEach(function(item,index,array){
+            if(c == item.key)
+            {
+                item.on();
+            }
+        });
+    //     switch(c){
+    //     case 'a':
+    //        onaudioA();
+    //        break;
+    //     case 's':
+    //       onaudioS();
+    //       break;
+    //     case 'd' :
+    //        onaudioD();
+    //        break;
+    //     case 'f' :
+    //        onaudioF();
+    //        break;
+    //     case 'g' :
+    //        onaudioG();
+    //        break;
+    //     case 'h' :
+    //        onaudioH();
+    //        break;
+    //     case 'j' :
+    //        onaudioJ();
+    //        break;
+    //     case 'k' :
+    //        onaudioK();
+    //        break;
+    //     case 'l' :
+    //        onaudioL();
+    //        break;
+    //  }
     }
-     function offaudioA(){
-            akey.style.backgroundColor = "darkorange";
-            akey.style.fontSize = "60px";
-            document.getElementById('aaudio').pause();
-            document.getElementById('aaudio').currentTime = "0";
-            akey.style.borderColor = "black";
-     }
-     function offaudioS(){
-            skey.style.backgroundColor = "darkorange";
-            skey.style.fontSize = "60px";
-            document.getElementById('saudio').pause();
-            document.getElementById('saudio').currentTime = "0";
-            skey.style.borderColor = "black";
-     }
-     function offaudioD(){
-            dkey.style.backgroundColor = "darkorange";
-            dkey.style.fontSize = "60px";
-            document.getElementById('daudio').pause();
-            document.getElementById('daudio').currentTime = "0";
-            dkey.style.borderColor = "black";
-     }
-     function offaudioF(){
-            fkey.style.backgroundColor = "darkorange";
-            fkey.style.fontSize = "60px";
-            document.getElementById('faudio').pause();
-            document.getElementById('faudio').currentTime = "0";
-            fkey.style.borderColor = "black";
-     }
-     function offaudioG(){
-            gkey.style.backgroundColor = "darkorange";
-            gkey.style.fontSize = "60px";
-            document.getElementById('gaudio').pause();
-            document.getElementById('gaudio').currentTime = "0";
-            gkey.style.borderColor = "black";
-     }
-     function offaudioH(){
-            hkey.style.backgroundColor = "darkorange";
-            hkey.style.fontSize = "60px";
-            document.getElementById('haudio').pause();
-            document.getElementById('haudio').currentTime = "0";
-            hkey.style.borderColor = "black";
-     }
-     function offaudioJ(){
-            jkey.style.backgroundColor = "darkorange";
-            jkey.style.fontSize = "60px";
-            document.getElementById('jaudio').pause();
-            document.getElementById('jaudio').currentTime = "0";
-            jkey.style.borderColor = "black";
-     }
-     function offaudioK(){
-            kkey.style.backgroundColor = "darkorange";
-            kkey.style.fontSize = "60px";
-            document.getElementById('kaudio').pause();
-            document.getElementById('kaudio').currentTime = "0";
-            kkey.style.borderColor = "black";
-     }
-     function offaudioL(){
-            lkey.style.backgroundColor = "darkorange";
-            lkey.style.fontSize = "60px";
-            document.getElementById('laudio').pause();
-            document.getElementById('laudio').currentTime = "0";
-            lkey.style.borderColor = "black";
-     }
+    //  function offaudioA(){
+    //         akey.style.backgroundColor = "darkorange";
+    //         akey.style.fontSize = "60px";
+    //         document.getElementById('aaudio').pause();
+    //         document.getElementById('aaudio').currentTime = "0";
+    //         akey.style.borderColor = "black";
+    //  }
+    //  function offaudioS(){
+    //         skey.style.backgroundColor = "darkorange";
+    //         skey.style.fontSize = "60px";
+    //         document.getElementById('saudio').pause();
+    //         document.getElementById('saudio').currentTime = "0";
+    //         skey.style.borderColor = "black";
+    //  }
+    //  function offaudioD(){
+    //         dkey.style.backgroundColor = "darkorange";
+    //         dkey.style.fontSize = "60px";
+    //         document.getElementById('daudio').pause();
+    //         document.getElementById('daudio').currentTime = "0";
+    //         dkey.style.borderColor = "black";
+    //  }
+    //  function offaudioF(){
+    //         fkey.style.backgroundColor = "darkorange";
+    //         fkey.style.fontSize = "60px";
+    //         document.getElementById('faudio').pause();
+    //         document.getElementById('faudio').currentTime = "0";
+    //         fkey.style.borderColor = "black";
+    //  }
+    //  function offaudioG(){
+    //         gkey.style.backgroundColor = "darkorange";
+    //         gkey.style.fontSize = "60px";
+    //         document.getElementById('gaudio').pause();
+    //         document.getElementById('gaudio').currentTime = "0";
+    //         gkey.style.borderColor = "black";
+    //  }
+    //  function offaudioH(){
+    //         hkey.style.backgroundColor = "darkorange";
+    //         hkey.style.fontSize = "60px";
+    //         document.getElementById('haudio').pause();
+    //         document.getElementById('haudio').currentTime = "0";
+    //         hkey.style.borderColor = "black";
+    //  }
+    //  function offaudioJ(){
+    //         jkey.style.backgroundColor = "darkorange";
+    //         jkey.style.fontSize = "60px";
+    //         document.getElementById('jaudio').pause();
+    //         document.getElementById('jaudio').currentTime = "0";
+    //         jkey.style.borderColor = "black";
+    //  }
+    //  function offaudioK(){
+    //         kkey.style.backgroundColor = "darkorange";
+    //         kkey.style.fontSize = "60px";
+    //         document.getElementById('kaudio').pause();
+    //         document.getElementById('kaudio').currentTime = "0";
+    //         kkey.style.borderColor = "black";
+    //  }
+    //  function offaudioL(){
+    //         lkey.style.backgroundColor = "darkorange";
+    //         lkey.style.fontSize = "60px";
+    //         document.getElementById('laudio').pause();
+    //         document.getElementById('laudio').currentTime = "0";
+    //         lkey.style.borderColor = "black";
+    //  }
      window.addEventListener("keyup",upaudio);
     
      function upaudio(e){
-        var c = e.key;
-        switch(c){
-        case 'a':
-           offaudioA();
-           break;
-        case 's':
-          offaudioS();
-           break;
-        case 'd' :
-           offaudioD();
-           break;
-        case 'f' :
-           offaudioF();
-           break;
-        case 'g' :
-           offaudioG();
-           break;
-        case 'h' :
-           offaudioH();
-           break;
-        case 'j' :
-           offaudioJ();
-           break;
-        case 'k' :
-           offaudioK();
-           break;
-        case 'l' :
-           offaudioL();
-           break;
-     }
+        let c = e.key;
+        keys.forEach(function(item,index,array){
+            if(c == item.key)
+            {
+                item.off();
+            }
+        });
+    //     switch(c){
+    //     case 'a':
+    //        offaudioA();
+    //        break;
+    //     case 's':
+    //       offaudioS();
+    //        break;
+    //     case 'd' :
+    //        offaudioD();
+    //        break;
+    //     case 'f' :
+    //        offaudioF();
+    //        break;
+    //     case 'g' :
+    //        offaudioG();
+    //        break;
+    //     case 'h' :
+    //        offaudioH();
+    //        break;
+    //     case 'j' :
+    //        offaudioJ();
+    //        break;
+    //     case 'k' :
+    //        offaudioK();
+    //        break;
+    //     case 'l' :
+    //        offaudioL();
+    //        break;
+    //  }
     }
     
     </script>
