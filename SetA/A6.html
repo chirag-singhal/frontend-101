@@ -26,7 +26,7 @@
                 stroke-dasharray: 3000;
                 stroke-dashoffset: -3000;
                 stroke-width: 7;
-                animation: d-anim 1.5s forwards ease-in;
+                animation: d-anim 1.5s forwards cubic-bezier(.58,.15,.84,.4);
             }
             @keyframes d-anim{
                 0%{stroke-dashoffset: -3000;fill: black;}
@@ -38,7 +38,7 @@
                 stroke-dasharray: 2000;
                 stroke-dashoffset: -2000;
                 stroke-width: 7;
-                animation: v-anim 1.5s forwards ease-in;
+                animation: v-anim 1.5s forwards cubic-bezier(.58,.15,.84,.4);
                 animation-delay: 0.5s;
             }
             @keyframes v-anim{
@@ -51,7 +51,7 @@
                 stroke-dasharray: 3000;
                 stroke-dashoffset: -3000;
                 stroke-width: 7;
-                animation: m-anim 1.5s forwards ease-in;
+                animation: m-anim 1.5s forwards cubic-bezier(.58,.15,.84,.4);
                 animation-delay: 1s;
             }
             @keyframes m-anim{
