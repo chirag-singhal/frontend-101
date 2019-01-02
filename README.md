@@ -31,8 +31,8 @@
      - Triggering animations when user reaches a particular part of the page by scrolling
   - [Task #B6 - FrontEnd Tech](https://chirag-singhal.github.io/frontend-101/SetB/B6.html)
      - Storing data locally on user's browser 
-  - [Task #B9 - Basic Chrome Extension](https://github.com/chirag-singhal/frontend-101/tree/gh-pages/SetB/B9/newtab.html)
+  - [Task #B9 - Basic Chrome Extension](https://github.com/chirag-singhal/frontend-101/tree/gh-pages/SetB/B9/)
      - Making a very simple Chrome Web Extension
-  - [Task #B10 - Github Fetch (Additional Task)](https://github.com/chirag-singhal/frontend-101/tree/gh-pages/SetB/B10.html)
+  - [Task #B10 - Github Fetch (Additional Task)](https://chirag-singhal.github.io/frontend-101/SetB/B10.htm)
      - using async/await , XMLHttpRequest and fetch API to print a GitHub user's public profile data
 
