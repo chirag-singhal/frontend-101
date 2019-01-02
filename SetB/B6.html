@@ -98,7 +98,7 @@
             front.appendChild(close);
         }
         function addfront(){
-            if(input.value != ""){
+            if(input.value.trim() != ""){
                 inputitem.push(input.value);
                 var front = document.createElement('div');
                 cont.appendChild(front);
@@ -118,6 +118,9 @@
                 localStorage.setItem('front_techs',JSON.stringify(inputitem));
                 input.value  = '';
             }
+            else{
+                input.value  = '';
+            }
         }
         function removefront(remove){
             remove.parentNode.parentNode.removeChild(remove.parentNode);
@@ -129,6 +132,11 @@
             }
             localStorage.setItem('front_techs',JSON.stringify(inputitem));
         }
+        window.addEventListener("keydown",function(e){
+            if(e.key == 'Enter'){
+                addfront();
+            }
+        });
     </script>
 </body>
 </html>

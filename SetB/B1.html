@@ -27,15 +27,15 @@
 </head>
 <body>
     <div class="container">
-        <div class="keys" id="a" onmousedown="onaudioA()" onmouseup="offaudioA()"><audio src="sounds/a.mp3" id="aaudio"></audio>A</div>
-        <div class="keys" id="s" onmousedown="onaudioS()" onmouseup="offaudioS()"><audio src="sounds/s.mp3" id="saudio"></audio>S</div>
-        <div class="keys" id="d" onmousedown="onaudioD()" onmouseup="offaudioD()"><audio src="sounds/d.mp3" id="daudio"></audio>D</div>
-        <div class="keys" id="f" onmousedown="onaudioF()" onmouseup="offaudioF()"><audio src="sounds/f.mp3" id="faudio"></audio>F</div>
-        <div class="keys" id="g" onmousedown="onaudioG()" onmouseup="offaudioG()"><audio src="sounds/g.mp3" id="gaudio"></audio>G</div>
-        <div class="keys" id="h" onmousedown="onaudioH()" onmouseup="offaudioH()"><audio src="sounds/h.mp3" id="haudio"></audio>H</div>
-        <div class="keys" id="j" onmousedown="onaudioJ()" onmouseup="offaudioJ()"><audio src="sounds/j.mp3" id="jaudio"></audio>J</div>
-        <div class="keys" id="k" onmousedown="onaudioK()" onmouseup="offaudioK()"><audio src="sounds/k.mp3" id="kaudio"></audio>K</div>
-        <div class="keys" id="l" onmousedown="onaudioL()" onmouseup="offaudioL()"><audio src="sounds/l.mp3" id="laudio"></audio>L</div>
+        <div class="keys" id="a" onmousedown="audio({key: 'a'})" onmouseup="upaudio({key: 'a'})"><audio src="sounds/a.mp3" id="aaudio"></audio>A</div>
+        <div class="keys" id="s" onmousedown="audio({key: 's'})" onmouseup="upaudio({key: 's'})"><audio src="sounds/s.mp3" id="saudio"></audio>S</div>
+        <div class="keys" id="d" onmousedown="audio({key: 'd'})" onmouseup="upaudio({key: 'd'})"><audio src="sounds/d.mp3" id="daudio"></audio>D</div>
+        <div class="keys" id="f" onmousedown="audio({key: 'f'})" onmouseup="upaudio({key: 'f'})"><audio src="sounds/f.mp3" id="faudio"></audio>F</div>
+        <div class="keys" id="g" onmousedown="audio({key: 'g'})" onmouseup="upaudio({key: 'g'})""><audio src="sounds/g.mp3" id="gaudio"></audio>G</div>
+        <div class="keys" id="h" onmousedown="audio({key: 'h'})" onmouseup="upaudio({key: 'h'})"><audio src="sounds/h.mp3" id="haudio"></audio>H</div>
+        <div class="keys" id="j" onmousedown="audio({key: 'j'})" onmouseup="upaudio({key: 'j'})"><audio src="sounds/j.mp3" id="jaudio"></audio>J</div>
+        <div class="keys" id="k" onmousedown="audio({key: 'k'})" onmouseup="upaudio({key: 'k'})"><audio src="sounds/k.mp3" id="kaudio"></audio>K</div>
+        <div class="keys" id="l" onmousedown="audio({key: 'l'})" onmouseup="upaudio({key: 'l'})"><audio src="sounds/l.mp3" id="laudio"></audio>L</div>
     </div>
 
     <script>
