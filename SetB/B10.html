@@ -33,6 +33,7 @@
         }
         #bio{
             width: 650px;
+            text-align: center;
         }
         #avatar{
             height: 150px;
@@ -73,7 +74,11 @@
                 names.innerHTML = gituser.name;
                 bio.innerHTML = gituser.bio;
             })
-            .catch(error => alert("Error"))
+            .catch(error => {
+                avatar.style.background = "";
+                names.innerHTML = "";
+                 bio.innerHTML = "Error 404 : Username Not Found";
+                 })
         }
         function searchfetch(){
             gitsearch(input.value);
@@ -87,10 +92,16 @@
             xml.open('GET',`https://api.github.com/users/${username}`);
             xml.send();
             xml.onload = function(){
-                avatar.style.background = `url(${xml.avatar_url})`;
-                avatar.style.backgroundSize = "cover";
-                names.innerHTML = xml.name;
-                bio.innerHTML = xml.bio;
+                if(xml.name != undefined)
+                {
+                    avatar.style.background = `url(${xml.avatar_url})`;
+                    avatar.style.backgroundSize = "cover";
+                    names.innerHTML = xml.name;
+                    bio.innerHTML = xml.bio;
+                }
+                else{
+                    bio.innerHTML = "Error 404 : Username Not Found";
+                }
             }
         }
     </script>
