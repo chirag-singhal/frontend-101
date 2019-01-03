@@ -75,9 +75,9 @@
                 bio.innerHTML = gituser.bio;
             })
             .catch(error => {
-                avatar.style.background = "";
-                names.innerHTML = "";
-                 bio.innerHTML = "Error 404 : Username Not Found";
+                    avatar.style.background = "";
+                    names.innerHTML = "";
+                    bio.innerHTML = "Error 404 : Username Not Found";
                  })
         }
         function searchfetch(){
@@ -92,14 +92,20 @@
             xml.open('GET',`https://api.github.com/users/${username}`);
             xml.send();
             xml.onload = function(){
-                if(xml.name != undefined)
+                if(xml.status == 200)
                 {
-                    avatar.style.background = `url(${xml.avatar_url})`;
+                    console.log("Found");
+                    console.log(xml);
+                    var response = JSON.parse(xml.responseText);
+                    avatar.style.background = `url(${response.avatar_url})`;
                     avatar.style.backgroundSize = "cover";
-                    names.innerHTML = xml.name;
-                    bio.innerHTML = xml.bio;
+                    names.innerHTML = response.name;
+                    bio.innerHTML = response.bio;
                 }
                 else{
+                    console.log("Error");
+                    avatar.style.background = "";
+                    names.innerHTML = "";
                     bio.innerHTML = "Error 404 : Username Not Found";
                 }
             }
