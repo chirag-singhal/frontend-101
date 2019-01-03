@@ -18,7 +18,7 @@
   - [Task #A7 - The X Factor](https://chirag-singhal.github.io/frontend-101/SetA/A7.html)
      - CSS Gradients used to create home screen wallpaper of iPhone X
   - [Task #A8 - Clip Clip Clip](https://chirag-singhal.github.io/frontend-101/SetA/A8.html)
-     - Using CSS Clip-Path Property 
+     - Using CSS Clip-Path Property to create animation as in [Species In Pieces](http://www.species-in-pieces.com/)
 * B (JAVASCRIPT)
   - [Task #B1 - Drums](https://chirag-singhal.github.io/frontend-101/SetB/B1.html)
   - [Task #B2 - Clock](https://chirag-singhal.github.io/frontend-101/SetB/B2.html)
@@ -31,6 +31,8 @@
      - Triggering animations when user reaches a particular part of the page by scrolling
   - [Task #B6 - FrontEnd Tech](https://chirag-singhal.github.io/frontend-101/SetB/B6.html)
      - Storing data locally on user's browser 
+  - [Task #B7 - Around The World](https://chirag-singhal.github.io/frontend-101/SetB/B7.html)
+     - Making a responsive map with the features of panning and zooming (functional both on Desktop and on handhelds)
   - [Task #B9 - Basic Chrome Extension](https://github.com/chirag-singhal/frontend-101/tree/master/SetB/B9/)
      - Making a very simple Chrome Web Extension
   - [Task #B10 - Github Fetch (Additional Task)](https://chirag-singhal.github.io/frontend-101/SetB/B10.html)

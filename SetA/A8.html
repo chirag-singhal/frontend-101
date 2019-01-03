@@ -108,5 +108,146 @@
         <div class="triangle t13"></div>
         <div class="triangle t14"></div>
     </div>
+    <script>
+        var triangle = document.getElementsByClassName("triangle");
+        var t1 = document.getElementsByClassName("t1")[0];
+        var t2 = document.getElementsByClassName("t2")[0];
+        var t3 = document.getElementsByClassName("t3")[0];
+        var t4 = document.getElementsByClassName("t4")[0];
+        var t5 = document.getElementsByClassName("t5")[0];
+        var t6 = document.getElementsByClassName("t6")[0];
+        var t7 = document.getElementsByClassName("t7")[0];
+        var t8 = document.getElementsByClassName("t8")[0];
+        var t9 = document.getElementsByClassName("t9")[0];
+        var t10 = document.getElementsByClassName("t10")[0];
+        var t11 = document.getElementsByClassName("t11")[0];
+        var t12 = document.getElementsByClassName("t12")[0];
+        var t13 = document.getElementsByClassName("t13")[0];
+        var t14 = document.getElementsByClassName("t14")[0];
+
+        var count = 0;
+        
+        window.addEventListener("keyup",function(e){
+            console.log(e);
+            if(e.keyCode == 39){
+                if(count < 2){
+                    count++;
+                }
+                else{
+                    count = 0;
+                }
+                for(let i = 0, j = 0.05, k = 0.3; i < triangle.length; i++, j += 0.05, k += 0.04){
+                    triangle[i].style.transition = `${k}s`;
+                    triangle[i].style.transitionDelay = `${j}s`;
+                }
+            }
+            if(e.keyCode == 37){
+                if(count < 1){
+                    count = 2;
+                }
+                else{
+                    count--;
+                }
+                for(let i = 0, j = 0.05, k = 0.3; i < triangle.length; i++, j += 0.05, k += 0.04){
+                    triangle[i].style.transition = `${k}s`;
+                    triangle[i].style.transitionDelay = `${j}s`;
+                }
+            }
+            console.log(count);
+            switch(count){
+                case 0 :
+                    console.log("D");
+                    t1.style.background = "#1446a0";
+                    t1.style.clipPath = "polygon(15% 15%,28% 15%,26% 50%)";
+                    t2.style.background = "#ba1f33";
+                    t2.style.clipPath = "polygon(15% 85%,28% 85%,26% 50%)";
+                    t3.style.background = "#f5d547";
+                    t3.style.clipPath = "polygon(28% 85%,40% 85%,27.53% 79%)";
+                    t4.style.background = "#161925";
+                    t4.style.clipPath = "polygon(15% 15%,18% 50%,26% 50%)";
+                    t5.style.background = "#eff6ee";
+                    t5.style.clipPath = "polygon(15% 85%,18% 50%,26% 50%)";
+                    t6.style.background = "#1446a0";
+                    t6.style.clipPath = "polygon(68% 71%,40% 85%,27.43% 79%)";
+                    t7.style.background = "#f5d547";
+                    t7.style.clipPath = "polygon(65% 51.5%,57% 73.2%,74% 51.5%)";
+                    t8.style.background = "#161925";
+                    t8.style.clipPath = "polygon(67% 33%,40% 15%,60% 21%)";
+                    t9.style.background = "#1446a0";
+                    t9.style.clipPath = "polygon(65% 51.5%,57% 30.03%,74% 51.5%)";
+                    t10.style.background = "#ba1f33";
+                    t10.style.clipPath = "polygon(28% 15%,40% 15%,27.53% 21%)";
+                    t11.style.background = "#f5d547";
+                    t11.style.clipPath = "polygon(67% 33%,40% 15%,27.43% 21%)";
+                    t12.style.background = "#ba1f33";
+                    t12.style.clipPath = "polygon(68% 71%,40% 85%,58% 81%)";
+                    t13.style.background = "#eff6ee";
+                    t13.style.clipPath = "polygon(67% 33%,57% 30.03%,74% 51.5%)";
+                    t14.style.background = "#161925";
+                    t14.style.clipPath = "polygon(68% 71%,57% 73.2%,74% 51.5%)";
+                    break;
+                case 1 : 
+                    t1.style.background = "#161925";
+					t1.style.clipPath = "polygon(9.2% 13%, 22.4% 12.77%, 27.6% 23.7%)";
+					t2.style.background = "#f5d547";
+					t2.style.clipPath = "polygon(9.2% 12.9%, 27.6% 23.7%, 17% 27.7%)";
+					t3.style.background = "#ba1f33";
+					t3.style.clipPath = "polygon(27.6% 23.7%, 25.8% 45.7%, 17% 27.7%)";
+					t4.style.background = "#1446a0";
+					t4.style.clipPath = "polygon(27.6% 23.7%, 35.8% 44%, 25.6% 45.8%)";
+					t5.style.background = "#f5d547";
+					t5.style.clipPath = "polygon(25.8% 45.8%, 35.8% 44%, 47.4% 66.6%)";
+					t6.style.background = "#161925";
+					t6.style.clipPath = "polygon(25.8% 45.8%, 47.4% 66.6%, 39.8% 72.3%)";
+					t7.style.background = "#1446a0";
+					t7.style.clipPath = "polygon(47.4% 66.462%, 47.4% 83.5%, 39.8% 72.3%)";
+					t8.style.background = "#ba1f33";
+					t8.style.clipPath = "polygon(47.4% 66.3%, 55% 72.3%, 47.4% 83.5%)";
+					t9.style.background = "#eff6ee";
+					t9.style.clipPath = "polygon(69% 45.8%, 55% 72.3%, 47.2% 66.462%)";
+					t10.style.background = "#1446a0";
+					t10.style.clipPath = "polygon(58.8% 44.1%, 69% 46%, 47.4% 66.3%)";
+					t11.style.background = "#f5d547";
+					t11.style.clipPath = "polygon(67.2% 24%, 69% 46%, 58.8% 44.1%)";
+					t12.style.background = "#161925";
+					t12.style.clipPath = "polygon(67.2% 24%, 77.8% 27.7%, 69% 46%)";
+					t13.style.background = "#eff6ee";
+					t13.style.clipPath = "polygon(85.6% 12.9%, 77.6% 27.7%, 67.4% 23.7%)";
+					t14.style.background = "#ba1f33";
+					t14.style.clipPath = "polygon(72.6% 12.6%, 85.6% 12.6%, 67.4% 23.7%)";
+					break;
+                case 2 :
+                    t1.style.background = "#ba1f33";
+					t1.style.clipPath = "polygon(13.2% 48.4%, 24.2% 78.9%, 13.2% 87.4%)";
+					t2.style.background = "#161925";
+					t2.style.clipPath = "polygon(13.2% 48.4%, 24% 55.4%, 24.2% 78.9%)";
+					t3.style.background = "#f5d547";
+					t3.style.clipPath = "polygon(24.2% 35.4%, 24% 55.4%, 13.2% 48.6%)";
+					t4.style.background = "#1446a0";
+					t4.style.clipPath = "polygon(13.2% 13.5%, 24.2% 35.4%, 13.2% 48.4%)";
+					t5.style.background = "#eff6ee";
+					t5.style.clipPath = "polygon(13.2% 13.5%, 36.8% 29.8%, 24.2% 35.4%)";
+					t6.style.background = "#ba1f33";
+					t6.style.clipPath = "polygon(36.8% 29.8%, 45.6% 49.5%, 24.2% 35.7%)";
+					t7.style.background = "#161925";
+					t7.style.clipPath = "polygon(36.8% 29.8%, 45.6% 38.7%, 45.6% 49.5%)";
+					t8.style.background = "#f5d547";
+					t8.style.clipPath = "polygon(54.4% 29.7%, 45.6% 49.4%, 45.6% 38.7%)";
+					t9.style.background = "#1446a0";
+					t9.style.clipPath = "polygon(54.4% 29.7%, 67% 35.5%, 45.6% 49.4%)";
+					t10.style.background = "#ba1f33";
+					t10.style.clipPath = "polygon(78% 13.2%, 67% 35.5%, 54.4% 29.7%)";
+					t11.style.background = "#eff6ee";
+					t11.style.clipPath = "polygon(78% 13.2%, 78% 48.6%, 67% 35.5%)";
+					t12.style.background = "#161925";
+					t12.style.clipPath = "polygon(67.2% 35.7%, 78.2% 48.7%, 67.2% 54.7%)";
+					t13.style.background = "#f5d547";
+					t13.style.clipPath = "polygon(78% 48.6%, 67.2% 78.9%, 67.2% 54.7%)";
+					t14.style.background = "#1446a0";
+					t14.style.clipPath = "polygon(78% 48.6%, 78% 87.4%, 67.2% 78.9%)";
+					break;
+            }
+        });
+    </script>
 </body>
 </html>

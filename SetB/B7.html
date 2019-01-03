@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #container{
+            height: 75vw;
+            width: 120vw;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url('img/world.jpg');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        var map = document.getElementById('container');
+        var initialheight = map.getBoundingClientRect().height;
+        var initialwidth = map.getBoundingClientRect().width;
+
+        var mousedown = 0;
+
+        window.addEventListener('wheel',function(e){
+            var mapHeight = map.getBoundingClientRect().height;
+			var mapWidth = map.getBoundingClientRect().width;
+			var mapTop = map.getBoundingClientRect().top;
+			var mapLeft = map.getBoundingClientRect().left;
+            console.log(mapTop);
+            e.preventDefault();
+            if(e.deltaY < 0){
+                map.style.transform = "scale(1.05,1.05)";
+                console.log(mapHeight);
+                console.log(mapWidth);
+                map.style.transformOrigin =  (-mapLeft+e.clientX)+"px "+(-mapTop+e.clientY)+"px";
+                map.style.top = mapTop+"px";
+				map.style.left = mapLeft+"px";
+				map.style.height = mapHeight+"px";
+				map.style.width = mapWidth+"px";
+            }
+            else if(e.deltaY > 0 && mapHeight > initialheight && mapWidth > initialwidth){
+                map.style.transform = "scale(0.95,0.95)";
+                console.log(mapHeight);
+                console.log(mapWidth);
+                map.style.transformOrigin =  (-mapLeft+e.clientX)+"px "+(-mapTop+e.clientY)+"px";
+                map.style.top = mapTop+"px";
+				map.style.left = mapLeft+"px";
+				map.style.height = mapHeight+"px";
+				map.style.width = mapWidth+"px";
+            }
+        });
+        window.addEventListener('mousedown', function(e){
+            mousedown = 1;
+            console.log(e.clientX);
+        });
+        window.addEventListener('mousedown', function(e){
+            mousedown = 0;
+            console.log(e.clientX);
+        });
+    </script>
+</body>
+</html>
