@@ -144,13 +144,12 @@
         var itouchx, itouchy, itouch1, itouch2;
 
         window.addEventListener('touchstart', function(e){
-            e.preventDefault();
             if(e.touches.length == 1){
                 itouchx = e.touches.clientX;
                 itouchy = e.touches.clientY;
             }
         });
-        window.addEventListener('touchmove', function(){
+        window.addEventListener('touchmove', function(e){
             if(e.touches.length == 1){
                 var ftouchx = e.touches.clientX;
                 var ftouchy = e.touches.clientY;
