@@ -48,9 +48,11 @@
         <input id="input_user" type="text">
         <button class="search" type="submit" onclick="searchfetch()">Search using Fetch</button>
         <button class="search" type="submit" onclick="searchxml()">Search using XML request</button>
+        <button class="search" type="submit" onclick="searchajax()">Search using jQuery/AJAX</button>
         <div id="name"></div>
         <div id="avatar"></div>
         <div id="bio"></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script>
         var input = document.getElementById('input_user');
         var avatar = document.getElementById('avatar');
@@ -109,6 +111,28 @@
                     bio.innerHTML = "Error 404 : Username Not Found";
                 }
             }
+        }
+        function searchajax(){
+            let username =  $("#input_user").val();
+            $.ajax({
+                url : `https://api.github.com/users/${username}`,
+                type : 'GET'
+            })
+            .done((gituser) => {
+                console.log(gituser);
+                $("#avatar").css('background',`url(${gituser.avatar_url})`);
+                $('#avatar').css('background-size','cover');
+                console.log(gituser.name);
+                $('#name').html(gituser.name);
+                $('#bio').html(gituser.bio);
+
+            })
+            .fail(() =>{
+                console.log("Fail");
+                $("#avatar").css('background','url()');
+                $('#name').html('');
+                $('#bio').html("Error 404 : Username Not Found");
+            });
         }
     </script>
 </body>
