@@ -114,6 +114,7 @@
         }
         function searchajax(){
             let username =  $("#input_user").val();
+            $("#input_user").val("");
             $.ajax({
                 url : `https://api.github.com/users/${username}`,
                 type : 'GET'
