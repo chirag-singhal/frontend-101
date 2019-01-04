@@ -154,11 +154,11 @@
                 var ftouchx = e.touches.clientX;
                 var ftouchy = e.touches.clientY;
 
-                itouchx = ftouchx;
-                itouchy = ftouchy;
-
                 var movex = ftouchx - itouchx;
                 var movey = ftouchy - itouchy;
+
+                itouchx = ftouchx;
+                itouchy = ftouchy;
 
                 var mapHeight = map.getBoundingClientRect().height;
                 var mapWidth = map.getBoundingClientRect().width;
@@ -167,7 +167,7 @@
 
                 if(movex > 0 && parseFloat(window.getComputedStyle(map).getPropertyValue("left")) <= 0){
                     var left = parseFloat(window.getComputedStyle(map).getPropertyValue("left"));
-                    map.style.left = left +movex +"px";
+                    map.style.left = left + movex +"px";
                 }
                 else if(movex < 0 && mapLeft > -(mapWidth - window.innerWidth))
                 {
