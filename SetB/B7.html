@@ -142,8 +142,17 @@
                 itouchx = e.touches[0].clientX;
                 itouchy = e.touches[0].clientY;
             }
+            else if(e.touches.length == 2){
+                itouch1 = [e.touches[0].clientX, e.touches[0].clientY];
+                itouch2 = [e.touches[1].clientX, e.touches[1].clientY];
+                var idist = ((itouch1[0] - itouch2[0])**2 + (itouch1[1] - itouch2[1])**2)**0.5;
+            }
         });
         window.addEventListener('touchmove', function(e){
+            map.ondragstart = function(){
+                return false;
+            };
+
             if(e.touches.length == 1){
                 var ftouchx = e.touches[0].clientX;
                 var ftouchy = e.touches[0].clientY;
@@ -177,6 +186,59 @@
                     map.style.top = styletop + movey +"px";
                 }
 
+            }
+            else if(e.touches.length == 2){
+                var ftouch1 = [e.touches[0].clientX, e.touches[0].clientY];
+                var ftouch2 = [e.touches[1].clientX, e.touches[1].clientY];
+
+                var fdist = ((ftouch1[0] - ftouch2[0])**2 + (ftouch1[1] - ftouch2[1])**2)**0.5;
+                var change = (fdist - idist)/idist;
+
+                ftouch1[0] = itouch1[0];
+                ftouch1[1] = itouch1[1];
+                ftouch2[0] = itouch2[0];
+                ftouch2[1] = itouch2[1];
+
+                var midx = ftouch1[0] + ftouch2[0];
+                var midy = ftouch1[1] + ftouch2[1];
+
+                map.style.transformOrigin = (-mapLeft + midx) +"px "+ (-mapTop + midy)+"px";
+
+                if(fdist > idist && mapHeight < initialheight * 5){
+                    map.style.transform = "scale("+(1+change)+")";
+                    if(styletop <= 0){
+                    map.style.top = mapTop+"px";
+                    }
+                    else{
+                        map.style.top = '0';
+                    }
+                    if(styleleft <= 0){
+                        map.style.left = mapLeft+"px";
+                    }
+                    else{
+                        map.style.left = '0';
+                    }
+                    map.style.height = mapHeight+"px";
+                    map.style.width = mapWidth+"px";
+                }
+                else if(fdist < idist && mapHeight > initialheight){
+                    map.style.transform = "scale("+(1+change)+")";
+                    if(styletop <= 0){
+                    map.style.top = mapTop+"px";
+                    }
+                    else{
+                        map.style.top = '0';
+                    }
+                    if(styleleft <= 0){
+                        map.style.left = mapLeft+"px";
+                    }
+                    else{
+                        map.style.left = '0';
+                    }
+                    map.style.height = mapHeight+"px";
+                    map.style.width = mapWidth+"px";
+                }
+                
             }
         });
     </script>
