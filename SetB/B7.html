@@ -41,7 +41,9 @@
             var mapHeight = map.getBoundingClientRect().height;
 			var mapWidth = map.getBoundingClientRect().width;
 			var mapTop = map.getBoundingClientRect().top;
-			var mapLeft = map.getBoundingClientRect().left;
+            var mapLeft = map.getBoundingClientRect().left;
+            var styleleft = parseFloat(window.getComputedStyle(map).getPropertyValue("left"));
+            var styletop = parseFloat(window.getComputedStyle(map).getPropertyValue("top"));
             console.log(mapTop);
             e.preventDefault();
             if(e.deltaY < 0 && mapHeight < initialheight * 5){
@@ -49,13 +51,13 @@
                 console.log(mapHeight);
                 console.log(mapWidth);
                 map.style.transformOrigin =  (-mapLeft+e.clientX)+"px "+(-mapTop+e.clientY)+"px";
-                if(parseFloat(window.getComputedStyle(map).getPropertyValue("top")) <= 0){
+                if(styletop <= 0){
                     map.style.top = mapTop+"px";
                 }
                 else{
                     map.style.top = '0';
                 }
-                if(parseFloat(window.getComputedStyle(map).getPropertyValue("left")) <= 0){
+                if(styleleft <= 0){
                     map.style.left = mapLeft+"px";
                 }
 				else{
@@ -67,13 +69,13 @@
             else if(e.deltaY > 0 && mapHeight > initialheight){
                 map.style.transform = "scale(0.95,0.95)";
                 map.style.transformOrigin =  (-mapLeft+e.clientX)+"px "+(-mapTop+e.clientY)+"px";
-                if(parseFloat(window.getComputedStyle(map).getPropertyValue("top")) <= 0){
+                if(styletop <= 0){
                     map.style.top = mapTop+"px";
                 }
                 else{
                     map.style.top = '0';
                 }
-                if(parseFloat(window.getComputedStyle(map).getPropertyValue("left")) <= 0){
+                if(styleleft <= 0){
                     map.style.left = mapLeft+"px";
                 }
 				else{
@@ -99,42 +101,36 @@
             var mapHeight = map.getBoundingClientRect().height;
 			var mapWidth = map.getBoundingClientRect().width;
 			var mapTop = map.getBoundingClientRect().top;
-			var mapLeft = map.getBoundingClientRect().left;
+            var mapLeft = map.getBoundingClientRect().left;
+            var styletop = parseFloat(window.getComputedStyle(map).getPropertyValue("top"));
+            var styleleft = parseFloat(window.getComputedStyle(map).getPropertyValue("left"));
             map.ondragstart = function(){
                 return false;
             };
 
-            if(parseFloat(window.getComputedStyle(map).getPropertyValue("top")) > 0){
+            if(styletop > 0){
                 map.style.top = '0';
             }
-            if(parseFloat(window.getComputedStyle(map).getPropertyValue("left")) > 0){
+            if(styleleft > 0){
                 map.style.left = '0';
             }
 
             if(mousedown){
-                if(e.movementX > 0 && parseFloat(window.getComputedStyle(map).getPropertyValue("left")) <= 0){
-                    console.log(mousedown);
-                    // var left = parseInt(map.style.left);
-                    var left = parseFloat(window.getComputedStyle(map).getPropertyValue("left"));
-                    console.log(left);
-                    map.style.left = left + e.movementX +"px";
+                if(e.movementX > 0 && styleleft <= 0){
+                    map.style.left = styleleft + e.movementX +"px";
                 }
                 else if(e.movementX < 0 && mapLeft > -(mapWidth - window.innerWidth))
                 {
-                    var left = parseFloat(window.getComputedStyle(map).getPropertyValue("left"));
-                    console.log(left);
-                    map.style.left = left + e.movementX +"px";
+                    map.style.left = styleleft + e.movementX +"px";
                 }
                 if(e.movementY > 0 && parseFloat(window.getComputedStyle(map).getPropertyValue("top")) <= 0){
                     console.log(mousedown);
                     // var left = parseInt(map.style.left);
-                    var top = parseFloat(window.getComputedStyle(map).getPropertyValue("top"));
-                    map.style.top = top + e.movementY +"px";
+                    map.style.top = styletop + e.movementY +"px";
                 }
                 if(e.movementY < 0 && mapTop > -(mapHeight - window.innerHeight))
                 {
-                    var top = parseFloat(window.getComputedStyle(map).getPropertyValue("top"));
-                    map.style.top = top + e.movementY +"px";
+                    map.style.top = styletop + e.movementY +"px";
                 }
             }
         });
@@ -155,31 +151,28 @@
                 var movex = ftouchx - itouchx;
                 var movey = ftouchy - itouchy;
 
-                itouchx = ftouchx;
-                itouchy = ftouchy;
-
                 var mapHeight = map.getBoundingClientRect().height;
                 var mapWidth = map.getBoundingClientRect().width;
                 var mapTop = map.getBoundingClientRect().top;
                 var mapLeft = map.getBoundingClientRect().left;
 
-                if(movex > 0 && parseFloat(window.getComputedStyle(map).getPropertyValue("left")) <= 0){
+                var styleleft = parseFloat(window.getComputedStyle(map).getPropertyValue("left"));
+                var styletop = parseFloat(window.getComputedStyle(map).getPropertyValue("top"));
+
+                if(movex > 0 && styleleft <= 0){
                     var left = parseFloat(window.getComputedStyle(map).getPropertyValue("left"));
                     map.style.left = left + movex +"px";
                 }
-                else if(movex < 0 && mapLeft > -(mapWidth - window.innerWidth))
+                else if(movex < 0 && styleleft > -(mapWidth - window.innerWidth))
                 {
-                    var left = parseFloat(window.getComputedStyle(map).getPropertyValue("left"));
-                    map.style.left = left + movex +"px";
+                    map.style.left = styleleft + movex +"px";
                 }
-                if(movey > 0 && parseFloat(window.getComputedStyle(map).getPropertyValue("top")) <= 0){
-                    var top = parseFloat(window.getComputedStyle(map).getPropertyValue("top"));
-                    map.style.top = top + movey +"px";
+                if(movey > 0 &&  styletop<= 0){
+                    map.style.top = styletop + movey +"px";
                 }
-                if(movey < 0 && mapTop > -(mapHeight - window.innerHeight))
+                if(movey < 0 && styletop > -(mapHeight - window.innerHeight))
                 {
-                    var top = parseFloat(window.getComputedStyle(map).getPropertyValue("top"));
-                    map.style.top = top + movey +"px";
+                    map.style.top = styletop + movey +"px";
                 }
 
             }
