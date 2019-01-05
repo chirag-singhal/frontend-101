@@ -192,12 +192,12 @@
                 var ftouch2 = [e.touches[1].clientX, e.touches[1].clientY];
 
                 var fdist = ((ftouch1[0] - ftouch2[0])**2 + (ftouch1[1] - ftouch2[1])**2)**0.5;
-                var change = (fdist - idist)/idist;
+                var change = (fdist - idist);
 
-                itouch1[0] = ftouch1[0];
-                itouch1[1] = ftouch1[1];
-                itouch2[0] = ftouch2[0];
-                itouch2[1] = ftouch2[1];
+                // itouch1[0] = ftouch1[0];
+                // itouch1[1] = ftouch1[1];
+                // itouch2[0] = ftouch2[0];
+                // itouch2[1] = ftouch2[1];
 
                 var midx = ftouch1[0] + ftouch2[0];
                 var midy = ftouch1[1] + ftouch2[1];
