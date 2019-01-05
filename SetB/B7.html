@@ -194,15 +194,15 @@
                 var fdist = ((ftouch1[0] - ftouch2[0])**2 + (ftouch1[1] - ftouch2[1])**2)**0.5;
                 var change = (fdist - idist)/idist;
 
-                ftouch1[0] = itouch1[0];
-                ftouch1[1] = itouch1[1];
-                ftouch2[0] = itouch2[0];
-                ftouch2[1] = itouch2[1];
+                itouch1[0] = ftouch1[0];
+                itouch1[1] = ftouch1[1];
+                itouch2[0] = ftouch2[0];
+                itouch2[1] = ftouch2[1];
 
                 var midx = ftouch1[0] + ftouch2[0];
                 var midy = ftouch1[1] + ftouch2[1];
 
-                map.style.transformOrigin = (-mapLeft + midx) +"px "+ (-mapTop + midy)+"px";
+                map.style.transformOrigin = (-mapLeft + midx) +"px "+ (-mapTop + midy) +"px";
 
                 if(fdist > idist && mapHeight < initialheight * 5){
                     map.style.transform = "scale("+(1+change)+")";
