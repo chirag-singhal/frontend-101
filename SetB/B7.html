@@ -139,14 +139,14 @@
 
         window.addEventListener('touchstart', function(e){
             if(e.touches.length == 1){
-                itouchx = e.touches.clientX;
-                itouchy = e.touches.clientY;
+                itouchx = e.touches[0].clientX;
+                itouchy = e.touches[0].clientY;
             }
         });
         window.addEventListener('touchmove', function(e){
             if(e.touches.length == 1){
-                var ftouchx = e.touches.clientX;
-                var ftouchy = e.touches.clientY;
+                var ftouchx = e.touches[0].clientX;
+                var ftouchy = e.touches[0].clientY;
 
                 var movex = ftouchx - itouchx;
                 var movey = ftouchy - itouchy;
