@@ -22,14 +22,13 @@
         }
         @media all and (max-width: 600px){
             #container{
-                height: 120vh;
-                width: 75vh;
+                height: 150vh;
+                width: 120vh;
             }
         }
     </style>
 </head>
 <body>
-    hy
     <div id="container"></div>
     <script>
         var map = document.getElementById('container');
@@ -152,8 +151,8 @@
                 var movex = ftouchx - itouchx;
                 var movey = ftouchy - itouchy;
 
-                itouchx = ftouchx;
-                itouchy = ftouchy
+                // itouchx = ftouchx;
+                // itouchy = ftouchy
 
                 var mapHeight = map.getBoundingClientRect().height;
                 var mapWidth = map.getBoundingClientRect().width;
@@ -170,7 +169,7 @@
                 {
                     map.style.left = styleleft + movex +"px";
                 }
-                if(movey > 0 &&  styletop<= 0){
+                if(movey > 0 &&  styletop <= 0){
                     map.style.top = styletop + movey +"px";
                 }
                 if(movey < 0 && mapTop > -(mapHeight - window.innerHeight))
