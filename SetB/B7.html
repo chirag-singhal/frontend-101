@@ -160,17 +160,16 @@
                 var styletop = parseFloat(window.getComputedStyle(map).getPropertyValue("top"));
 
                 if(movex > 0 && styleleft <= 0){
-                    var left = parseFloat(window.getComputedStyle(map).getPropertyValue("left"));
-                    map.style.left = left + movex +"px";
+                    map.style.left = styleleft + movex +"px";
                 }
-                else if(movex < 0 && styleleft > -(mapWidth - window.innerWidth))
+                else if(movex < 0 && mapLeft > -(mapWidth - window.innerWidth))
                 {
                     map.style.left = styleleft + movex +"px";
                 }
                 if(movey > 0 &&  styletop<= 0){
                     map.style.top = styletop + movey +"px";
                 }
-                if(movey < 0 && styletop > -(mapHeight - window.innerHeight))
+                if(movey < 0 && mapTop > -(mapHeight - window.innerHeight))
                 {
                     map.style.top = styletop + movey +"px";
                 }
