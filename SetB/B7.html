@@ -29,6 +29,7 @@
     </style>
 </head>
 <body>
+    hy
     <div id="container"></div>
     <script>
         var map = document.getElementById('container');
@@ -150,6 +151,9 @@
 
                 var movex = ftouchx - itouchx;
                 var movey = ftouchy - itouchy;
+
+                itouchx = ftouchx;
+                itouchy = ftouchy
 
                 var mapHeight = map.getBoundingClientRect().height;
                 var mapWidth = map.getBoundingClientRect().width;
