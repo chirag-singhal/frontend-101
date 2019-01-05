@@ -142,7 +142,7 @@
                 itouchx = e.touches[0].clientX;
                 itouchy = e.touches[0].clientY;
             }
-            else if(e.touches.length == 2){
+            if(e.touches.length == 2){
                 itouch1 = [e.touches[0].clientX, e.touches[0].clientY];
                 itouch2 = [e.touches[1].clientX, e.touches[1].clientY];
                 var idist = ((itouch1[0] - itouch2[0])**2 + (itouch1[1] - itouch2[1])**2)**0.5;
@@ -187,7 +187,7 @@
                 }
 
             }
-            else if(e.touches.length == 2){
+            if(e.touches.length == 2){
                 var ftouch1 = [e.touches[0].clientX, e.touches[0].clientY];
                 var ftouch2 = [e.touches[1].clientX, e.touches[1].clientY];
 
