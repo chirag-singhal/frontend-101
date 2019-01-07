@@ -15,9 +15,6 @@
     "browser_action": {
     "default_title": "Chirag Singhal"
     },
-  //  "chrome_url_overrides" : {
-  //    "newtab": "newtab.html"
-  //  },
     "permissions": ["activeTab"]
    }
   

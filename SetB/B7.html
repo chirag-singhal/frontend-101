@@ -39,6 +39,7 @@
         var mousedown = 0;
 
         window.addEventListener('wheel',function(e){
+            console.log('wheel');
             var mapHeight = map.getBoundingClientRect().height;
 			var mapWidth = map.getBoundingClientRect().width;
 			var mapTop = map.getBoundingClientRect().top;
@@ -191,6 +192,7 @@
 
             }
             if(e.touches.length == 2){
+                alert("touch move");
                 var ftouch1x = e.touches[0].clientX;
                 var ftouch2x = e.touches[1].clientX;
                 var ftouch1y = e.touches[0].clientY;
