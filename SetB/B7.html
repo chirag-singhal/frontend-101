@@ -144,7 +144,7 @@
                 itouchx = e.touches[0].clientX;
                 itouchy = e.touches[0].clientY;
             }
-            if(e.touches.length == 2){
+            else if(e.touches.length == 2){
                 itouch1x = e.touches[0].clientX;
                 itouch2x = e.touches[1].clientX;
                 itouch1y = e.touches[0].clientY
@@ -193,7 +193,7 @@
                 }
 
             }
-            if(e.touches.length == 2){
+            else if(e.touches.length == 2){
                 alert("touch move 2");
                 var ftouch1x = e.touches[0].clientX;
                 var ftouch2x = e.touches[1].clientX;
