@@ -153,11 +153,13 @@
             }
         });
         window.addEventListener('touchmove', function(e){
+            
             map.ondragstart = function(){
                 return false;
             };
 
             if(e.touches.length == 1){
+                alert("touch move 1");
                 var ftouchx = e.touches[0].clientX;
                 var ftouchy = e.touches[0].clientY;
 
@@ -192,7 +194,7 @@
 
             }
             if(e.touches.length == 2){
-                alert("touch move");
+                alert("touch move 2");
                 var ftouch1x = e.touches[0].clientX;
                 var ftouch2x = e.touches[1].clientX;
                 var ftouch1y = e.touches[0].clientY;
