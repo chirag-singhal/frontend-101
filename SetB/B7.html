@@ -157,43 +157,8 @@
             map.ondragstart = function(){
                 return false;
             };
-
-            if(e.touches.length == 1){
-                alert("touch move 1");
-                var ftouchx = e.touches[0].clientX;
-                var ftouchy = e.touches[0].clientY;
-
-                var movex = ftouchx - itouchx;
-                var movey = ftouchy - itouchy;
-
-                itouchx = ftouchx;
-                itouchy = ftouchy
-
-                var mapHeight = map.getBoundingClientRect().height;
-                var mapWidth = map.getBoundingClientRect().width;
-                var mapTop = map.getBoundingClientRect().top;
-                var mapLeft = map.getBoundingClientRect().left;
-
-                var styleleft = parseFloat(window.getComputedStyle(map).getPropertyValue("left"));
-                var styletop = parseFloat(window.getComputedStyle(map).getPropertyValue("top"));
-
-                if(movex > 0 && styleleft <= 0){
-                    map.style.left = styleleft + movex +"px";
-                }
-                else if(movex < 0 && mapLeft > -(mapWidth - window.innerWidth))
-                {
-                    map.style.left = styleleft + movex +"px";
-                }
-                if(movey > 0 &&  styletop <= 0){
-                    map.style.top = styletop + movey +"px";
-                }
-                if(movey < 0 && mapTop > -(mapHeight - window.innerHeight))
-                {
-                    map.style.top = styletop + movey +"px";
-                }
-
-            }
-            else if(e.touches.length == 2){
+            
+            if(e.touches.length == 2){
                 alert("touch move 2");
                 var ftouch1x = e.touches[0].clientX;
                 var ftouch2x = e.touches[1].clientX;
@@ -213,8 +178,7 @@
 
                 map.style.transformOrigin = (-mapLeft + midx) +"px "+ (-mapTop + midy) +"px";
 
-                // if(fdist > idist && mapHeight < initialheight * 5){
-                    if(fdist > idist){
+                if(fdist > idist && mapHeight < initialheight * 5){
                     alert("zoom in");
                     map.style.transform = "scale(1.05,1.05)";
                     if(styletop <= 0){
@@ -251,6 +215,43 @@
                 }
                 
             }
+
+            else if(e.touches.length == 1){
+                alert("touch move 1");
+                var ftouchx = e.touches[0].clientX;
+                var ftouchy = e.touches[0].clientY;
+
+                var movex = ftouchx - itouchx;
+                var movey = ftouchy - itouchy;
+
+                itouchx = ftouchx;
+                itouchy = ftouchy
+
+                var mapHeight = map.getBoundingClientRect().height;
+                var mapWidth = map.getBoundingClientRect().width;
+                var mapTop = map.getBoundingClientRect().top;
+                var mapLeft = map.getBoundingClientRect().left;
+
+                var styleleft = parseFloat(window.getComputedStyle(map).getPropertyValue("left"));
+                var styletop = parseFloat(window.getComputedStyle(map).getPropertyValue("top"));
+
+                if(movex > 0 && styleleft <= 0){
+                    map.style.left = styleleft + movex +"px";
+                }
+                else if(movex < 0 && mapLeft > -(mapWidth - window.innerWidth))
+                {
+                    map.style.left = styleleft + movex +"px";
+                }
+                if(movey > 0 &&  styletop <= 0){
+                    map.style.top = styletop + movey +"px";
+                }
+                if(movey < 0 && mapTop > -(mapHeight - window.innerHeight))
+                {
+                    map.style.top = styletop + movey +"px";
+                }
+
+            }
+            
         });
     </script>
 </body>
