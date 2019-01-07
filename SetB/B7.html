@@ -214,6 +214,7 @@
                 map.style.transformOrigin = (-mapLeft + midx) +"px "+ (-mapTop + midy) +"px";
 
                 if(fdist > idist && mapHeight < initialheight * 5){
+                    alert("zoom in");
                     map.style.transform = "scale(1.05,1.05)";
                     if(styletop <= 0){
                     map.style.top = mapTop+"px";
