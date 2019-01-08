@@ -20,6 +20,10 @@
             background: url('img/world.jpg');
             background-size: cover;
         }
+        #touches{
+            height: 20px;
+            width: 100vw;
+        }
         @media all and (max-width: 600px){
             #container{
                 height: 120vh;
@@ -29,7 +33,7 @@
     </style>
 </head>
 <body>
-    hy
+    <div id="touches"></div>
     <div id="container"></div>
     <script>
         var map = document.getElementById('container');
@@ -153,13 +157,14 @@
             }
         });
         window.addEventListener('touchmove', function(e){
-            
+            touch = e.touches.length;
+            touches = document.getElementById('touches');
             map.ondragstart = function(){
                 return false;
             };
             
             if(e.touches.length == 2){
-                alert("touch move 2");
+                touches.innerHTML = touch; 
                 var ftouch1x = e.touches[0].clientX;
                 var ftouch2x = e.touches[1].clientX;
                 var ftouch1y = e.touches[0].clientY;
@@ -179,7 +184,7 @@
                 map.style.transformOrigin = (-mapLeft + midx) +"px "+ (-mapTop + midy) +"px";
 
                 if(fdist > idist && mapHeight < initialheight * 5){
-                    alert("zoom in");
+                    touch.innerHTML += "fdist > idist";
                     map.style.transform = "scale(1.05,1.05)";
                     if(styletop <= 0){
                     map.style.top = mapTop+"px";
@@ -197,6 +202,7 @@
                     map.style.width = mapWidth+"px";
                 }
                 if(fdist < idist && mapHeight > initialheight){
+                    touch.innerHTML += "fdist > idist";
                     map.style.transform = "scale(0.95,0.95)";
                     if(styletop <= 0){
                     map.style.top = mapTop+"px";
@@ -217,7 +223,7 @@
             }
 
             else if(e.touches.length == 1){
-                alert("touch move 1");
+                touches.innerHTML = touch; 
                 var ftouchx = e.touches[0].clientX;
                 var ftouchy = e.touches[0].clientY;
 
