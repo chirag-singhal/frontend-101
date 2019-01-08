@@ -141,7 +141,7 @@
             }
         });
         
-        var itouchx, itouchy, itouch1x, itouch2x, itouch1y, itouch2y;
+        var itouchx, itouchy, itouch1x, itouch2x, itouch1y, itouch2y, idist;
 
         window.addEventListener('touchstart', function(e){
             if(e.touches.length == 1){
@@ -153,7 +153,7 @@
                 itouch2x = e.touches[1].clientX;
                 itouch1y = e.touches[0].clientY
                 itouch2y = e.touches[1].clientY;
-                var idist = ((itouch1x - itouch2x)**2 + (itouch1y - itouch2y)**2)**0.5;
+                idist = ((itouch1x - itouch2x)**2 + (itouch1y - itouch2y)**2)**0.5;
             }
         });
         window.addEventListener('touchmove', function(e){
