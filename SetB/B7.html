@@ -153,7 +153,6 @@
                 itouch2x = e.touches[1].clientX;
                 itouch1y = e.touches[0].clientY
                 itouch2y = e.touches[1].clientY;
-                idist = ((itouch1x - itouch2x)**2 + (itouch1y - itouch2y)**2)**0.5;
             }
         });
         window.addEventListener('touchmove', function(e){
@@ -169,7 +168,8 @@
                 var ftouch2x = e.touches[1].clientX;
                 var ftouch1y = e.touches[0].clientY;
                 var ftouch2y = e.touches[1].clientY;
-
+                
+                idist = ((itouch1x - itouch2x)**2 + (itouch1y - itouch2y)**2)**0.5;
                 var fdist = ((ftouch1x - ftouch2x)**2 + (ftouch1y - ftouch2y)**2)**0.5;
                 var change = (fdist - idist);
 
