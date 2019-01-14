@@ -27,6 +27,8 @@
             flex-direction: column;
         }
         .cell{
+            height: 25%;
+            width: 25%;
             background: #cdc1b4;
             border-radius: 5px;
         }
@@ -62,7 +64,59 @@
         .score-value{
             color: floralwhite;
         }
-
+        .newcell{
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 45px;
+        }
+        .cell2{
+            color:#776e65;
+	        background:#eee3d6;
+        }
+        .cell4{
+            color:#776e65;
+	        background:#ede0c8;
+        }
+        .cell8{
+            color:#f9f6f2;
+	        background:#f2b179;
+        }
+        .cell16{
+            color:#f9f6f2;
+	        background:#f59563;
+        }
+        .cell32{
+            color:#f9f6f2;
+	        background:#f67e5f;
+        }
+        .cell64{
+            color:#f9f6f2;
+	        background:#f65e3b;
+        }
+        .cell128{
+            color:#f9f6f2;
+	        background:#f1d96b;
+        }
+        .cell256{
+            color:#f9f6f2;
+	        background:#f2cf4d;
+        }
+        .cell512{
+            color:#f9f6f2;
+	        background:#e5c12b
+        }
+        .cell024{
+            color:#f9f6f2;
+	        background:#dfba12;
+        }
+        .cell2048{
+            color:#f9f6f2;
+	        background:#edc501;
+        }
     </style>
 </head>
 <body>
@@ -76,30 +130,96 @@
         </div>
         <table>
             <tr>
-                <td class="cell 1"></td>
-                <td class="cell 2"></td>
-                <td class="cell 3"></td>
-                <td class="cell 4"></td>
-            </tr>
-            <tr>
-                <td class="cell 5"></td>
-                <td class="cell 6"></td>
-                <td class="cell 7"></td>
-                <td class="cell 8"></td>
-            </tr>
-            <tr>
-                <td class="cell 9"></td>
-                <td class="cell 10"></td>
                 <td class="cell 11"></td>
                 <td class="cell 12"></td>
-            </tr>
-            <tr>
                 <td class="cell 13"></td>
                 <td class="cell 14"></td>
-                <td class="cell 15"></td>
-                <td class="cell 16"></td>
+            </tr>
+            <tr>
+                <td class="cell 21"></td>
+                <td class="cell 22"></td>
+                <td class="cell 23"></td>
+                <td class="cell 24"></td>
+            </tr>
+            <tr>
+                <td class="cell 31"></td>
+                <td class="cell 32"></td>
+                <td class="cell 33"></td>
+                <td class="cell 34"></td>
+            </tr>
+            <tr>
+                <td class="cell 41"></td>
+                <td class="cell 42"></td>
+                <td class="cell 43"></td>
+                <td class="cell 44"></td>
             </tr>
         </table>
     </div>
+    <script>
+        var cell = document.getElementsByClassName('cell');
+        var score = document.getElementsByClassName('score-value')[0];
+        var values = [];
+        for(let i = 0; i < 4; i++){
+            values[i] = [];
+            for(let j = 0; j < 4; j++){
+                values[i][j] = 0;
+            }
+        }
+        function addnumber(){
+            var random  = Math.floor(Math.random()*16);
+            console.log(random);
+            var random4 = Math.floor(Math.random()*100);
+            console.log(random4);
+            if(document.getElementsByClassName('cell')[random].childNodes.length == 0){
+                var newcell = document.createElement('div');
+                newcell.classList.add("newcell");
+                if(random4 % 7 == 0){
+                    newcell.innerHTML = 4;
+                    newcell.classList.add("cell4");
+                }
+                else{
+                    newcell.innerHTML = 2;
+                    newcell.classList.add("cell2");
+                }
+                document.getElementsByClassName('cell')[random].appendChild(newcell);
+            }
+            else{
+                addnumber();
+            }
+        }
+        addnumber();
+        addnumber();
+        
+        // function mergerow(a,b){
+        //     for(let i = 0; i < 4; i++){
+        //         if(values[a][i] == values[b][i]){
+        //             values[a][i] = values[a][i]*2;
+        //             score.innerHTML = score.innerHTML + values[a][i];
+        //         }
+        //     }
+        // }
+            function moveup(){
+                for(let i = 0; i < 4; i++){
+                    for(let j = 0; j < 4; j++){
+                        if(values[i][j] != 0){
+                            
+                        }
+                    }
+                }
+            }
+        // event handlers
+
+        document.addEventListener('keyup', function(e){
+            var key = e.key;
+            console.log(e);
+            switch(key){
+                case 'ArrowUp' : 
+                    // mergerow(0,1);
+                    // mergerow(1,2);
+                    // mergerow(2,3);
+                    moveup();
+            }
+        });
+    </script>
 </body>
 </html>
