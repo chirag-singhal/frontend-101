@@ -32,6 +32,7 @@
             width: 25%;
             background: #cdc1b4;
             border-radius: 5px;
+            transition: 0.2s all ease-in-out forwards;
         }
         .game-name{
             height: 140px;
@@ -73,7 +74,6 @@
             justify-content: center;
             align-items: center;
             font-size: 45px;
-            transition: 1s forwards;
         }
         .cell2{
             color:#776e65;
@@ -119,6 +119,17 @@
             color:#f9f6f2;
 	        background:#edc501;
         }
+        .anim_new_cell{
+            animation: size 0.2s ease-in-out forwards;
+        }
+        .move{
+            animation: size 0.3s ease-in-out forwards;
+        }
+        @keyframes size{
+            0%{transform: scale(0);}
+            50%{transform: scale(1.1);}
+            100%{transform: scale(1);}
+        }
     </style>
 </head>
 <body>
@@ -159,7 +170,8 @@
     </div>
     <script>
         var cell = document.getElementsByClassName('cell');
-        var score = document.getElementsByClassName('score-value')[0];
+        var score_div = document.getElementsByClassName('score-value')[0];
+        var newcells = document.getElementsByClassName('newcell');
         var _00 = document.getElementsByClassName('11')[0];
         var _01 = document.getElementsByClassName('12')[0];
         var _02 = document.getElementsByClassName('13')[0];
@@ -177,6 +189,7 @@
         var _32 = document.getElementsByClassName('43')[0];
         var _33 = document.getElementsByClassName('44')[0];
         let values = [];
+        var score = 0;
         function start(){
             for(let i = 0; i < 4; i++){
                 values[i] = [];
@@ -191,7 +204,7 @@
             console.log(random);
             var random4 = Math.floor(Math.random()*100);
             console.log(random4);
-            if(document.getElementsByClassName('cell')[random].childNodes.length == 0){
+            if(document.getElementsByClassName('cell')[random].childNodes.length == 0 & newcells.length < 16){
                 var newcell = document.createElement('div');
                 newcell.classList.add("newcell");
                 if(random4 % 7 == 0){
@@ -208,9 +221,14 @@
                     newcell.innerHTML = 2;
                     newcell.classList.add("cell2");
                 }
+                var tiles = newcell.length;
                 document.getElementsByClassName('cell')[random].appendChild(newcell);
+                newcell.classList.add("anim_new_cell")
+                setTimeout(() =>{
+                    newcell.classList.remove("anim_new_cell");
+                }, 300)
             }
-            else{
+            else if(newcells.length < 16){
                 addnumber();
             }
         }
@@ -251,8 +269,47 @@
                 }
             }
         }
+        function nospaceright(){
+            console.log("right");
+            for(let i = 3; i >= 0; i--){
+                var k = 3;
+                for(let j = 3; j >= 0; j--){
+                    if(values[i][j] != 0){
+                        values[i][k] = values[i][j];
+                        if(j != k){
+                            values[i][j] = 0;
+                        }
+                        var change5 = i*4 + k;
+                        var change6 = i*4 + j;
+                        movey(change5,change6);
+                        k--;
+                    }
+                }
+            }
+        }
+        function nospaceleft(){
+            for(let i = 0; i < 4; i++){
+                var k = 0;
+                for(let j = 0; j < 4; j++){
+                    if(values[i][j] != 0){
+                        values[i][k] = values[i][j];
+                        if(j != k){
+                            values[i][j] = 0;
+                        }
+                        var change7 = i*4 + k;
+                        var change8 = i*4 + j;
+                        movey(change7,change8);
+                        k++;
+                    }
+                }
+            }
+        }
         function movey(a,b){
             if(a != b){
+                cell[b].childNodes[0].classList.add("move");
+                setTimeout(() => {
+                    cell[b].childNodes[0].classList.remove("move");
+                }, 300);
                 cell[a].appendChild(cell[b].childNodes[0]);
             }
         }
@@ -265,6 +322,8 @@
                             if(values[j][i] == values[j+1][i]){
                                 document.getElementsByClassName(`${(j+1)}${(i+1)}`)[0].childNodes[0].classList.remove(`cell${values[j][i]}`);
                                 values[j][i] *= 2;
+                                score += values[j][i];
+                                score_div.innerHTML = score;
                                 values[j+1][i] = 0;
                                 document.getElementsByClassName(`${(j+1)}${(i+1)}`)[0].childNodes[0].innerHTML = values[j][i];
                                 document.getElementsByClassName(`${(j+1)}${(i+1)}`)[0].childNodes[0].classList.add(`cell${values[j][i]}`);
@@ -278,6 +337,29 @@
                 addnumber();
             }
 
+            function moveleft(){
+                nospaceleft();
+                for(let i = 0; i < 4; i++){
+                    for(let j = 0; j < 3; j++){
+                        if(values[i][j] != 0){
+                            if(values[i][j] == values[i][j+1]){
+                                document.getElementsByClassName(`${(i+1)}${(j+1)}`)[0].childNodes[0].classList.remove(`cell${values[i][j]}`);
+                                values[i][j] *= 2;
+                                score += values[i][j];
+                                score_div.innerHTML = score;
+                                values[i][j+1] = 0;
+                                document.getElementsByClassName(`${(i+1)}${(j+1)}`)[0].childNodes[0].innerHTML = values[i][j];
+                                document.getElementsByClassName(`${(i+1)}${(j+1)}`)[0].childNodes[0].classList.add(`cell${values[i][j]}`);
+                                document.getElementsByClassName(`${(i+1)}${(j+2)}`)[0].removeChild( document.getElementsByClassName(`${(i+1)}${(j+2)}`)[0].childNodes[0]);
+
+                            }
+                        }
+                    }
+                }
+                nospaceleft();
+                addnumber();
+            }
+
             function movedown(){
                 nospacedown();
                 for(let i = 3; i >= 0; i--){
@@ -286,6 +368,8 @@
                             if(values[j][i] == values[j-1][i]){
                                 document.getElementsByClassName(`${(j+1)}${(i+1)}`)[0].childNodes[0].classList.remove(`cell${values[j][i]}`);
                                 values[j][i] *= 2;
+                                score += values[j][i];
+                                score_div.innerHTML = score;
                                 values[j-1][i] = 0;
                                 document.getElementsByClassName(`${(j+1)}${(i+1)}`)[0].childNodes[0].innerHTML = values[j][i];
                                 document.getElementsByClassName(`${(j+1)}${(i+1)}`)[0].childNodes[0].classList.add(`cell${values[j][i]}`);
@@ -296,6 +380,29 @@
                     }
                 }
                 nospacedown();
+                addnumber();
+            }
+
+            function moveright(){
+                nospaceright();
+                for(let i = 3; i >= 0; i--){
+                    for(let j = 3; j > 0; j--){
+                        if(values[i][j] != 0){
+                            if(values[i][j] == values[i][j-1]){
+                                document.getElementsByClassName(`${(i+1)}${(j+1)}`)[0].childNodes[0].classList.remove(`cell${values[i][j]}`);
+                                values[i][j] *= 2;
+                                score += values[i][j];
+                                score_div.innerHTML = score;
+                                values[i][j-1] = 0;
+                                document.getElementsByClassName(`${(i+1)}${(j+1)}`)[0].childNodes[0].innerHTML = values[i][j];
+                                document.getElementsByClassName(`${(i+1)}${(j+1)}`)[0].childNodes[0].classList.add(`cell${values[i][j]}`);
+                                document.getElementsByClassName(`${(i+1)}${(j)}`)[0].removeChild( document.getElementsByClassName(`${(i+1)}${j}`)[0].childNodes[0]);
+
+                            }
+                        }
+                    }
+                }
+                nospaceright();
                 addnumber();
             }
 
@@ -310,6 +417,12 @@
                     break;
                 case 'ArrowDown' :
                     movedown();
+                    break;
+                case 'ArrowRight' :
+                    moveright();
+                    break;
+                case 'ArrowLeft' :
+                    moveleft();
                     break;
             }
         });
