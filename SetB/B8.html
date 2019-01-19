@@ -10,10 +10,11 @@
             margin: 0;
             padding: 0;
             font-family: cursive;
+            overflow: hidden;
         }
         table{
-            width: 500px;
-            height: 500px;
+            width: 450px;
+            height: 450px;
             background: #bbada0;
 		    border-radius:8px;
             border-spacing: 10px;
@@ -72,6 +73,7 @@
             justify-content: center;
             align-items: center;
             font-size: 45px;
+            transition: 1s forwards;
         }
         .cell2{
             color:#776e65;
@@ -158,13 +160,32 @@
     <script>
         var cell = document.getElementsByClassName('cell');
         var score = document.getElementsByClassName('score-value')[0];
-        var values = [];
-        for(let i = 0; i < 4; i++){
-            values[i] = [];
-            for(let j = 0; j < 4; j++){
-                values[i][j] = 0;
+        var _00 = document.getElementsByClassName('11')[0];
+        var _01 = document.getElementsByClassName('12')[0];
+        var _02 = document.getElementsByClassName('13')[0];
+        var _03 = document.getElementsByClassName('14')[0];
+        var _10 = document.getElementsByClassName('21')[0];
+        var _11 = document.getElementsByClassName('22')[0];
+        var _12 = document.getElementsByClassName('23')[0];
+        var _13 = document.getElementsByClassName('24')[0];
+        var _20 = document.getElementsByClassName('31')[0];
+        var _21 = document.getElementsByClassName('32')[0];
+        var _22 = document.getElementsByClassName('33')[0];
+        var _23 = document.getElementsByClassName('34')[0];
+        var _30 = document.getElementsByClassName('41')[0];
+        var _31 = document.getElementsByClassName('42')[0];
+        var _32 = document.getElementsByClassName('43')[0];
+        var _33 = document.getElementsByClassName('44')[0];
+        let values = [];
+        function start(){
+            for(let i = 0; i < 4; i++){
+                values[i] = [];
+                for(let j = 0; j < 4; j++){
+                    values[i][j] = 0;
+                }
             }
         }
+        start();
         function addnumber(){
             var random  = Math.floor(Math.random()*16);
             console.log(random);
@@ -175,9 +196,15 @@
                 newcell.classList.add("newcell");
                 if(random4 % 7 == 0){
                     newcell.innerHTML = 4;
+                    var row = parseInt(random/4);
+                    var col = random%4;
+                    values[row][col] = 4;
                     newcell.classList.add("cell4");
                 }
                 else{
+                    var row = parseInt(random/4);
+                    var col = random%4;
+                    values[row][col] = 2;
                     newcell.innerHTML = 2;
                     newcell.classList.add("cell2");
                 }
@@ -190,23 +217,88 @@
         addnumber();
         addnumber();
         
-        // function mergerow(a,b){
-        //     for(let i = 0; i < 4; i++){
-        //         if(values[a][i] == values[b][i]){
-        //             values[a][i] = values[a][i]*2;
-        //             score.innerHTML = score.innerHTML + values[a][i];
-        //         }
-        //     }
-        // }
-            function moveup(){
-                for(let i = 0; i < 4; i++){
-                    for(let j = 0; j < 4; j++){
-                        if(values[i][j] != 0){
-                            
+        function nospaceup(){
+            for(let i = 0; i < 4; i++){
+                var k = 0;
+                for(let j = 0; j < 4; j++){
+                    if(values[j][i] != 0){
+                        values[k][i] = values[j][i];
+                        if(j != k){
+                            values[j][i] = 0;
                         }
+                        var change1 = k*4 + i;
+                        var change2 = j*4 + i;
+                        movey(change1,change2);
+                        k++;
                     }
                 }
             }
+        }
+        function nospacedown(){
+            for(let i = 3; i >= 0; i--){
+                var k = 3;
+                for(let j = 3; j >= 0; j--){
+                    if(values[j][i] != 0){
+                        values[k][i] = values[j][i];
+                        if(j != k){
+                            values[j][i] = 0;
+                        }
+                        var change3 = k*4 + i;
+                        var change4 = j*4 + i;
+                        movey(change3,change4);
+                        k--;
+                    }
+                }
+            }
+        }
+        function movey(a,b){
+            if(a != b){
+                cell[a].appendChild(cell[b].childNodes[0]);
+            }
+        }
+        
+            function moveup(){
+                nospaceup();
+                for(let i = 0; i < 4; i++){
+                    for(let j = 0; j < 3; j++){
+                        if(values[j][i] != 0){
+                            if(values[j][i] == values[j+1][i]){
+                                document.getElementsByClassName(`${(j+1)}${(i+1)}`)[0].childNodes[0].classList.remove(`cell${values[j][i]}`);
+                                values[j][i] *= 2;
+                                values[j+1][i] = 0;
+                                document.getElementsByClassName(`${(j+1)}${(i+1)}`)[0].childNodes[0].innerHTML = values[j][i];
+                                document.getElementsByClassName(`${(j+1)}${(i+1)}`)[0].childNodes[0].classList.add(`cell${values[j][i]}`);
+                                document.getElementsByClassName(`${(j+2)}${(i+1)}`)[0].removeChild( document.getElementsByClassName(`${(j+2)}${(i+1)}`)[0].childNodes[0]);
+
+                            }
+                        }
+                    }
+                }
+                nospaceup();
+                addnumber();
+            }
+
+            function movedown(){
+                nospacedown();
+                for(let i = 3; i >= 0; i--){
+                    for(let j = 3; j > 0; j--){
+                        if(values[j][i] != 0){
+                            if(values[j][i] == values[j-1][i]){
+                                document.getElementsByClassName(`${(j+1)}${(i+1)}`)[0].childNodes[0].classList.remove(`cell${values[j][i]}`);
+                                values[j][i] *= 2;
+                                values[j-1][i] = 0;
+                                document.getElementsByClassName(`${(j+1)}${(i+1)}`)[0].childNodes[0].innerHTML = values[j][i];
+                                document.getElementsByClassName(`${(j+1)}${(i+1)}`)[0].childNodes[0].classList.add(`cell${values[j][i]}`);
+                                document.getElementsByClassName(`${j}${(i+1)}`)[0].removeChild( document.getElementsByClassName(`${j}${(i+1)}`)[0].childNodes[0]);
+
+                            }
+                        }
+                    }
+                }
+                nospacedown();
+                addnumber();
+            }
+
         // event handlers
 
         document.addEventListener('keyup', function(e){
@@ -214,10 +306,11 @@
             console.log(e);
             switch(key){
                 case 'ArrowUp' : 
-                    // mergerow(0,1);
-                    // mergerow(1,2);
-                    // mergerow(2,3);
                     moveup();
+                    break;
+                case 'ArrowDown' :
+                    movedown();
+                    break;
             }
         });
     </script>
