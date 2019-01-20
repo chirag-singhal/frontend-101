@@ -231,6 +231,9 @@
             else if(newcells.length < 16){
                 addnumber();
             }
+            else if (newcells.length = 16){
+                checkgameover();
+            }
         }
         addnumber();
         addnumber();
@@ -281,7 +284,7 @@
                         }
                         var change5 = i*4 + k;
                         var change6 = i*4 + j;
-                        movey(change5,change6);
+                        movex(change5,change6);
                         k--;
                     }
                 }
@@ -298,7 +301,7 @@
                         }
                         var change7 = i*4 + k;
                         var change8 = i*4 + j;
-                        movey(change7,change8);
+                        movex(change7,change8);
                         k++;
                     }
                 }
@@ -306,10 +309,14 @@
         }
         function movey(a,b){
             if(a != b){
-                cell[b].childNodes[0].classList.add("move");
-                setTimeout(() => {
-                    cell[b].childNodes[0].classList.remove("move");
-                }, 300);
+                var disty = cell[b].getBoundingClientRect().top - cell[a].getBoundingClientRect().top;
+                console.log(disty);
+                cell[a].appendChild(cell[b].childNodes[0]);
+            }
+        }
+        function movex(a,b){
+            if(a != b){
+                var distx = cell[a].getBoundingClientRect().left - cell[b].getBoundingClientRect().left;
                 cell[a].appendChild(cell[b].childNodes[0]);
             }
         }
@@ -426,6 +433,60 @@
                     break;
             }
         });
+
+        // check game over
+        
+        function checkgameover(){
+            if(leftcheck() & rightcheck() & upcheck() & downcheck()){
+                alert("Sorry! Game Over");
+            }
+        }
+
+        function leftcheck(){
+            var checkleft = 1;
+            for(let i = 0; i < 4; i++){
+                for(let j = 0; j < 3; j++){
+                    if(values[i][j] == values[i][j+1]){                 
+                        checkleft = 0;
+                    }
+                }
+            }
+            return checkleft;
+        }
+        function rightcheck(){
+            for(let i = 3; i >= 0; i--){
+                var checkright = 1;
+                for(let j = 3; j > 0; j--){
+                    if(values[i][j] == values[i][j-1]){
+                        checkright = 0;
+                    }
+                }
+            }
+            return checkright;
+        }
+        function upcheck(){
+            var checkup = 1;
+            for(let i = 0; i < 4; i++){
+                for(let j = 0; j < 3; j++){
+                    if(values[j][i] == values[j+1][i]){
+                       checkup = 0;      
+                    }
+                }
+            }
+            return checkup;
+        }
+        function downcheck(){
+            for(let i = 3; i >= 0; i--){
+                var checkdown = 1;
+                for(let j = 3; j > 0; j--){
+                    if(values[j][i] == values[j-1][i]){
+                          checkdown = 0;      
+                    }
+                }
+            }
+            return checkdown;
+        }
+
     </script>
 </body>
 </html>
