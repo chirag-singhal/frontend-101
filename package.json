@@ -1,0 +1,28 @@
+{
+  "name": "frontend-101",
+  "version": "1.0.0",
+  "description": "DVM Frontend Assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server",
+    "start": "npm run lite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chirag-singhal/frontend-101.git"
+  },
+  "keywords": [
+    "Winter",
+    "Assignment"
+  ],
+  "author": "Chirag Singhal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chirag-singhal/frontend-101/issues"
+  },
+  "homepage": "https://github.com/chirag-singhal/frontend-101#readme",
+  "dependencies": {
+    "lite-server": "^2.4.0"
+  }
+}
