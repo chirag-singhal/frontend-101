@@ -190,6 +190,7 @@
         var _33 = document.getElementsByClassName('44')[0];
         let values = [];
         var score = 0;
+        var change = false;
         function start(){
             for(let i = 0; i < 4; i++){
                 values[i] = [];
@@ -227,12 +228,10 @@
                 setTimeout(() =>{
                     newcell.classList.remove("anim_new_cell");
                 }, 300)
+            console.log(newcells.length);
             }
             else if(newcells.length < 16){
                 addnumber();
-            }
-            else if (newcells.length = 16){
-                checkgameover();
             }
         }
         addnumber();
@@ -245,6 +244,7 @@
                     if(values[j][i] != 0){
                         values[k][i] = values[j][i];
                         if(j != k){
+                            change = true;
                             values[j][i] = 0;
                         }
                         var change1 = k*4 + i;
@@ -262,6 +262,7 @@
                     if(values[j][i] != 0){
                         values[k][i] = values[j][i];
                         if(j != k){
+                            change = true;
                             values[j][i] = 0;
                         }
                         var change3 = k*4 + i;
@@ -280,6 +281,7 @@
                     if(values[i][j] != 0){
                         values[i][k] = values[i][j];
                         if(j != k){
+                            change = true;
                             values[i][j] = 0;
                         }
                         var change5 = i*4 + k;
@@ -297,6 +299,7 @@
                     if(values[i][j] != 0){
                         values[i][k] = values[i][j];
                         if(j != k){
+                            change = true;
                             values[i][j] = 0;
                         }
                         var change7 = i*4 + k;
@@ -322,11 +325,14 @@
         }
         
             function moveup(){
+                change = false;
                 nospaceup();
+                console.log(change);
                 for(let i = 0; i < 4; i++){
                     for(let j = 0; j < 3; j++){
                         if(values[j][i] != 0){
                             if(values[j][i] == values[j+1][i]){
+                                change = true;
                                 document.getElementsByClassName(`${(j+1)}${(i+1)}`)[0].childNodes[0].classList.remove(`cell${values[j][i]}`);
                                 values[j][i] *= 2;
                                 score += values[j][i];
@@ -340,16 +346,27 @@
                         }
                     }
                 }
+                console.log(change);
                 nospaceup();
-                addnumber();
+                console.log(change);
+                if(change)
+                    addnumber();
+                if (newcells.length == 16){
+                    setTimeout(() => {
+                        checkgameover();  
+                    }, 100);
+                }
             }
 
             function moveleft(){
+                change = false;
                 nospaceleft();
+                console.log(change);
                 for(let i = 0; i < 4; i++){
                     for(let j = 0; j < 3; j++){
                         if(values[i][j] != 0){
                             if(values[i][j] == values[i][j+1]){
+                                change = true;
                                 document.getElementsByClassName(`${(i+1)}${(j+1)}`)[0].childNodes[0].classList.remove(`cell${values[i][j]}`);
                                 values[i][j] *= 2;
                                 score += values[i][j];
@@ -363,16 +380,27 @@
                         }
                     }
                 }
+                console.log(change);
                 nospaceleft();
-                addnumber();
+                console.log(change);
+                if(change)
+                    addnumber();
+                if (newcells.length == 16){
+                    setTimeout(() => {
+                        checkgameover();  
+                    }, 100);
+                }
             }
 
             function movedown(){
+                change = false;
                 nospacedown();
+                console.log(change);
                 for(let i = 3; i >= 0; i--){
                     for(let j = 3; j > 0; j--){
                         if(values[j][i] != 0){
                             if(values[j][i] == values[j-1][i]){
+                                change = true;
                                 document.getElementsByClassName(`${(j+1)}${(i+1)}`)[0].childNodes[0].classList.remove(`cell${values[j][i]}`);
                                 values[j][i] *= 2;
                                 score += values[j][i];
@@ -386,16 +414,27 @@
                         }
                     }
                 }
+                console.log(change);
                 nospacedown();
-                addnumber();
+                console.log(change);
+                if(change)
+                    addnumber();
+                if (newcells.length == 16){
+                    setTimeout(() => {
+                        checkgameover();  
+                    }, 100);
+                }
             }
 
             function moveright(){
+                change = false;
                 nospaceright();
+                console.log(change);
                 for(let i = 3; i >= 0; i--){
                     for(let j = 3; j > 0; j--){
                         if(values[i][j] != 0){
                             if(values[i][j] == values[i][j-1]){
+                                change = true;
                                 document.getElementsByClassName(`${(i+1)}${(j+1)}`)[0].childNodes[0].classList.remove(`cell${values[i][j]}`);
                                 values[i][j] *= 2;
                                 score += values[i][j];
@@ -409,8 +448,16 @@
                         }
                     }
                 }
+                console.log(change);
                 nospaceright();
-                addnumber();
+                console.log(change);
+                if(change)
+                    addnumber();
+                if (newcells.length == 16){
+                    setTimeout(() => {
+                        checkgameover();  
+                    }, 100);
+                }
             }
 
         // event handlers
@@ -437,6 +484,7 @@
         // check game over
         
         function checkgameover(){
+            console.log("Game over check");
             if(leftcheck() & rightcheck() & upcheck() & downcheck()){
                 alert("Sorry! Game Over");
             }
