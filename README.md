@@ -33,6 +33,8 @@
      - Storing data locally on user's browser 
   - [Task #B7 - Around The World](https://chirag-singhal.github.io/frontend-101/SetB/B7.html)
      - Making a responsive map with the features of panning and zooming (functional both on Desktop and on handhelds)
+  - [Task #B8 - Game Time (2048)](https://chirag-singhal.github.io/frontend-101/SetB/B8.html)
+    - Recreating the game 2048, originally made by Gabriele Cirulli
   - [Task #B9 - Basic Chrome Extension](https://github.com/chirag-singhal/frontend-101/tree/master/SetB/B9/)
      - Making a very simple Chrome Web Extension
   - [Task #B10 - Github Fetch (Additional Task)](https://chirag-singhal.github.io/frontend-101/SetB/B10.html)
